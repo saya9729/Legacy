@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://main character sprites/walk left/main character walk left 7.png" type="Texture" id=2]
@@ -37,19 +37,19 @@ animations = [ {
 "name": "run left",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 9 ), ExtResource( 21 ), ExtResource( 8 ), ExtResource( 29 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 28 ), ExtResource( 9 ), ExtResource( 21 ), ExtResource( 8 ), ExtResource( 29 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "walk right",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 16 ), ExtResource( 26 ), ExtResource( 6 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "stand left",
-"speed": 10.0
+"name": "run right",
+"speed": 13.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 2 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "walk left",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 9 ), ExtResource( 21 ), ExtResource( 8 ), ExtResource( 29 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walk right",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 18 ), ExtResource( 10 ) ],
@@ -57,15 +57,18 @@ animations = [ {
 "name": "stand right",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 28 ), ExtResource( 9 ), ExtResource( 21 ), ExtResource( 8 ), ExtResource( 29 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 16 ), ExtResource( 26 ), ExtResource( 6 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "run right",
-"speed": 13.0
+"name": "stand left",
+"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 3.16827
-height = 5.64772
+height = 18.9181
+
+[sub_resource type="Animation" id=3]
+resource_name = "stand left"
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -76,16 +79,19 @@ position = Vector2( 0, -7.62939e-06 )
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 4.16693, -18.0793 )
+position = Vector2( 4.27205, -19.0793 )
 frames = SubResource( 1 )
 animation = "stand right"
 frame = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 4.16693, -18.0793 )
+position = Vector2( 0.272048, -19.0793 )
 current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -0.0117912 )
+position = Vector2( 3.52556, -0.222012 )
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/stand left" = SubResource( 3 )
