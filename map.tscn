@@ -1,69 +1,8 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://newtrest3.tres" type="TileSet" id=1]
 [ext_resource path="res://newtrest4.tres" type="TileSet" id=2]
-[ext_resource path="res://main.gd" type="Script" id=3]
-[ext_resource path="res://main character6.png" type="Texture" id=4]
-[ext_resource path="res://main character sprites/walk right/main character walk right5.png" type="Texture" id=5]
-[ext_resource path="res://main character sprites/walk right/main character walk right3.png" type="Texture" id=6]
-[ext_resource path="res://main character sprites/stand right/main character stand4.png" type="Texture" id=7]
-[ext_resource path="res://main character sprites/walk right/main character walk right2.png" type="Texture" id=8]
-[ext_resource path="res://main character sprites/walk right/main character walk right4.png" type="Texture" id=9]
-[ext_resource path="res://main character sprites/walk right/main character walk right7.png" type="Texture" id=10]
-[ext_resource path="res://main character sprites/walk right/main character walk right8.png" type="Texture" id=11]
-[ext_resource path="res://main character sprites/stand right/main character stand2.png" type="Texture" id=12]
-[ext_resource path="res://main character sprites/stand right/main character stand5.png" type="Texture" id=13]
-[ext_resource path="res://main character sprites/stand right/main character stand3.png" type="Texture" id=14]
-[ext_resource path="res://main character sprites/walk right/main character walk right9.png" type="Texture" id=15]
-[ext_resource path="res://main character sprites/stand right/main character stand1.png" type="Texture" id=16]
-[ext_resource path="res://main character sprites/walk right/main character walk right6.png" type="Texture" id=17]
-[ext_resource path="res://main character sprites/walk left/main character walk left 5.png" type="Texture" id=18]
-[ext_resource path="res://main character sprites/walk left/main character walk  left 3.png" type="Texture" id=19]
-[ext_resource path="res://main character sprites/stand left/main character walk  left 3.png" type="Texture" id=20]
-[ext_resource path="res://main character sprites/stand left/main character walk  left 4.png" type="Texture" id=21]
-[ext_resource path="res://main character sprites/stand left/main character walk  left 6.png" type="Texture" id=22]
-[ext_resource path="res://main character sprites/stand left/main character walk  left 7.png" type="Texture" id=23]
-[ext_resource path="res://main character sprites/walk left/main character walk left 1.png" type="Texture" id=24]
-[ext_resource path="res://main character sprites/walk left/main character walk left 2.png" type="Texture" id=25]
-[ext_resource path="res://main character sprites/walk left/main character walk left 4.png" type="Texture" id=26]
-[ext_resource path="res://main character sprites/walk left/main character walk left 6.png" type="Texture" id=27]
-[ext_resource path="res://main character sprites/stand left/main character walk  left 5.png" type="Texture" id=28]
-[ext_resource path="res://main character sprites/walk left/main character walk left 7.png" type="Texture" id=29]
-[ext_resource path="res://main character sprites/walk left/main character walk left 8.png" type="Texture" id=30]
-[ext_resource path="res://main character sprites/walk right/main character walk right1.png" type="Texture" id=31]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 18 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "run left",
-"speed": 13.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 17 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "walk right",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "stand left",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 18 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "walk left",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 7 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "stand right",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 31 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 17 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "run right",
-"speed": 13.0
-} ]
+[ext_resource path="res://main character sprites/Player.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 317.231, 139.64 )
@@ -128,24 +67,4 @@ cell_clip_uv = true
 format = 1
 tile_data = PoolIntArray( -1310685, 3, 0, -1245149, 3, 0, -1179613, 3, 0, -1114077, 3, 0, -1048541, 3, 0, -983005, 3, 0, -917469, 3, 0, -851933, 3, 0, -786397, 3, 0, -720861, 3, 0, -655325, 3, 0, -589789, 3, 0, -524253, 3, 0, -458717, 3, 0, -393181, 3, 0, -327645, 3, 0, -262109, 3, 0, -196573, 3, 0, -131037, 3, 0, -65501, 3, 0, 35, 3, 0, 65571, 3, 0, 131107, 3, 0, 196643, 3, 0, 262179, 3, 0, 327715, 3, 0, 393251, 3, 0, 458787, 3, 0, 524323, 3, 0, 589859, 3, 0, 655395, 3, 0, 720931, 3, 0, 786467, 3, 0, 852003, 3, 0, 917539, 3, 0, 983075, 3, 0, 1048611, 3, 0, 1114147, 3, 0, 1179683, 3, 0, 1245219, 3, 0, 1376221, 1, 0, 1376222, 1, 0, 1376223, 1, 0, 1376224, 1, 0, 1376225, 1, 0, 1376226, 1, 0, 1376227, 1, 0, 1376228, 1, 0, 1376229, 1, 0, 1376230, 1, 0, 1376231, 1, 0, 1376232, 1, 0, 1376233, 1, 0, 1376234, 1, 0, 1376235, 1, 0, 1376236, 1, 0, 1376237, 1, 0, 1376238, 1, 0, 1376239, 1, 0, 1376240, 1, 0, 1310735, 2, 0, 1310736, 2, 0, 1310737, 2, 0, 1310738, 2, 0, 1310739, 2, 0, 1310740, 2, 0, 1310741, 2, 0, 1310742, 2, 0, 1310743, 2, 0, 1310744, 2, 0, 1310745, 2, 0, 1310746, 2, 0, 1310747, 2, 0, 1310748, 2, 0, 1310749, 2, 0, 1310750, 2, 0, 1310751, 2, 0, 1310752, 2, 0, 1310753, 2, 0, 1310754, 2, 0 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( -140.859, 15.2244 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
-visible = false
-position = Vector2( -0.396851, -7.62939e-06 )
-texture = ExtResource( 4 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
-frames = SubResource( 1 )
-animation = "stand right"
-frame = 1
-playing = true
-
-[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
-position = Vector2( 1, 0 )
-current = true
+[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
