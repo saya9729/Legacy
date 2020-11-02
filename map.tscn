@@ -2,7 +2,7 @@
 
 [ext_resource path="res://newtrest3.tres" type="TileSet" id=1]
 [ext_resource path="res://newtrest4.tres" type="TileSet" id=2]
-[ext_resource path="res://main character sprites/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 317.231, 139.64 )

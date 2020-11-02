@@ -4,10 +4,10 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const ACCELERATION = 10
+const ACCELERATION = 500
 const MAX_SPEED = 50
 const MAX_SPRINT_SPEED = 100
-const FRICTION = 10
+const FRICTION = 500
 
 var velocity =  Vector2.ZERO
 
@@ -20,16 +20,11 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()
 		
 	if input_vector != Vector2.ZERO:
-		velocity += input_vector * ACCELERATION * delta
-		velocity = velocity.clamped(MAX_SPEED * delta)
-	elif Input.is_action_pressed("ui_sprint"):
-		velocity += input_vector * ACCELERATION * delta
-		velocity = velocity.clamped(MAX_SPRINT_SPEED * delta)
-	
+		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	
-	move_and_collide(velocity)
+	velocity =  move_and_slide(velocity)
 	
 	
 	
