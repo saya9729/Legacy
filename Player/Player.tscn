@@ -42,20 +42,20 @@ animations = [ {
 "name": "walk left",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 26 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 28 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 25 ), ExtResource( 4 ), ExtResource( 21 ), ExtResource( 19 ) ],
 "loop": true,
-"name": "stand left",
-"speed": 10.0
+"name": "run right",
+"speed": 13.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "stand right",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 25 ), ExtResource( 4 ), ExtResource( 21 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 26 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "run right",
-"speed": 13.0
+"name": "stand left",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 25 ), ExtResource( 4 ), ExtResource( 21 ), ExtResource( 19 ) ],
 "loop": true,
@@ -68,6 +68,7 @@ radius = 4.99997
 height = 14.0001
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( 4, 1 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
