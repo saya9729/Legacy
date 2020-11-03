@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+var hp=100
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
