@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://newtrest3.tres" type="TileSet" id=1]
 [ext_resource path="res://newtrest4.tres" type="TileSet" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/sampleWall.tscn" type="PackedScene" id=4]
-[ext_resource path="res://HealthBar.gd" type="Script" id=5]
-[ext_resource path="res://whitehealthbar.png" type="Texture" id=6]
-[ext_resource path="res://blackhealthbar.png" type="Texture" id=7]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 317.231, 139.64 )
@@ -78,24 +75,13 @@ position = Vector2( -155.907, 25.8361 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="KinematicBody2D" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( -89.5238, 44.5746 )
+position = Vector2( -125.231, 36.36 )
 
 [node name="StaticBody2D" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( -136.231, 42.36 )
 
 [node name="StaticBody2D2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -152.544, 33.6417 )
+position = Vector2( -153.231, 34.36 )
 
-[node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -186.0
-margin_top = 66.0
-margin_right = 7.0
-margin_bottom = 106.0
-value = 50.0
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 7 )
-tint_progress = Color( 1, 0.380392, 1, 1 )
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="StaticBody2D3" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -119.231, 50.36 )
