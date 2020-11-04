@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Player/stand right/main character stand5.png" type="Texture" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://Player/walk right/main character walk right1.png" type="Texture" id=28]
 [ext_resource path="res://main character6.png" type="Texture" id=29]
 [ext_resource path="res://UI/HealthBar.tscn" type="PackedScene" id=30]
+[ext_resource path="res://UI/testcharfeat.png" type="Texture" id=31]
+[ext_resource path="res://UI/skillbar.png" type="Texture" id=32]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -38,19 +40,19 @@ animations = [ {
 "name": "run left",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "stand right",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 25 ), ExtResource( 4 ), ExtResource( 21 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "walk right",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 26 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "stand left",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 25 ), ExtResource( 4 ), ExtResource( 21 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "run right",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "stand right",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 6 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 10 ), ExtResource( 22 ), ExtResource( 8 ) ],
@@ -58,10 +60,10 @@ animations = [ {
 "name": "walk left",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 25 ), ExtResource( 4 ), ExtResource( 21 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 25 ), ExtResource( 4 ), ExtResource( 21 ), ExtResource( 19 ) ],
 "loop": true,
-"name": "run right",
-"speed": 13.0
+"name": "walk right",
+"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -94,7 +96,18 @@ shape = SubResource( 2 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 30 )]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -10.0
 margin_bottom = 0.0
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 55.0921, 123.485 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 31 )
+
+[node name="skillbar" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 54.6489, 123.561 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 32 )
