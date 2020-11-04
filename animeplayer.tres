@@ -7,6 +7,8 @@
 [ext_resource path="res://Player/stand left/main character walk  left 4.png" type="Texture" id=5]
 
 
+
+
 [resource]
 0/name = "main character walk  left 3"
 0/texture = ExtResource( 2 )
