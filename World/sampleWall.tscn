@@ -16,4 +16,5 @@ position = Vector2( 7, -2 )
 polygon = PoolVector2Array( -11.7445, 2.65155, 6, 11, 10, 10, 10, 6, -4, 0 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 occluder = SubResource( 1 )
