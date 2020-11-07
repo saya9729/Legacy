@@ -1,15 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://HealthBar.gd" type="Script" id=1]
-[ext_resource path="res://whitehealthbar.png" type="Texture" id=2]
-[ext_resource path="res://blackhealthbar.png" type="Texture" id=3]
+[ext_resource path="res://circle2.png" type="Texture" id=2]
+[ext_resource path="res://circle.png" type="Texture" id=3]
 
 [node name="HealthBar" type="TextureProgress"]
-margin_right = 100.0
-margin_bottom = 10.0
-value = 50.0
-texture_under = ExtResource( 2 )
-texture_progress = ExtResource( 3 )
+margin_right = 319.0
+margin_bottom = 307.0
+value = 100.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+fill_mode = 5
+tint_progress = Color( 0.0901961, 0.615686, 0.282353, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -71,10 +71,6 @@ tile_data = PoolIntArray( -1310685, 3, 0, -1245149, 3, 0, -1179613, 3, 0, -11140
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0, 0.12549, 0.141176, 1 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
-visible = false
-position = Vector2( -155.907, 25.8361 )
-
 [node name="YSort" type="YSort" parent="."]
 
 [node name="KinematicBody2D" parent="YSort" instance=ExtResource( 3 )]
