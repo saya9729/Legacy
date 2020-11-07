@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player/Stamina.gd" type="Script" id=1]
+[ext_resource path="res://circle1.png" type="Texture" id=2]
+[ext_resource path="res://circle.png" type="Texture" id=3]
+
+[node name="Stamina" type="TextureProgress"]
+margin_right = 370.0
+margin_bottom = 368.0
+value = 100.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+fill_mode = 5
+tint_progress = Color( 0.0352941, 0.576471, 0.643137, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
