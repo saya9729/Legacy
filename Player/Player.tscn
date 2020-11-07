@@ -232,7 +232,6 @@ script = ExtResource( 1 )
 position = Vector2( 0, -15 )
 texture = ExtResource( 29 )
 hframes = 26
-frame = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
