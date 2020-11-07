@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Player/walk right/main character walk right6.png" type="Texture" id=2]
@@ -29,13 +29,10 @@
 [ext_resource path="res://Player/stand left/main character walk  left 5.png" type="Texture" id=27]
 [ext_resource path="res://Player/walk left/main character walk left 2.png" type="Texture" id=28]
 [ext_resource path="res://Player/Player-Sprite.png" type="Texture" id=29]
-[ext_resource path="res://UI/HealthBar.tscn" type="PackedScene" id=30]
 [ext_resource path="res://UI/testcharfeat.png" type="Texture" id=31]
 [ext_resource path="res://UI/skillbar.png" type="Texture" id=32]
 [ext_resource path="res://testcharfeat.png" type="Texture" id=33]
 [ext_resource path="res://World/light effect.png" type="Texture" id=34]
-[ext_resource path="res://UI/testcharfeafullcolort.png" type="Texture" id=35]
-[ext_resource path="res://UI/Stamina.tscn" type="PackedScene" id=36]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -232,6 +229,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -15 )
 texture = ExtResource( 29 )
 hframes = 26
+frame = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
@@ -250,22 +248,6 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 30 )]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 3.71687
-margin_top = -37.5127
-margin_right = 311.717
-margin_bottom = 270.487
-rect_scale = Vector2( 0.106, 0.11 )
-
-[node name="Stamina" parent="CanvasLayer" instance=ExtResource( 36 )]
-margin_left = 6.33409
-margin_top = 100.0
-margin_right = 376.334
-margin_bottom = 468.0
-rect_scale = Vector2( 0.077, 0.077 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 19, 113 )
@@ -307,7 +289,3 @@ process_mode = 0
 parameters/playback = SubResource( 24 )
 parameters/Stand/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0, 0 )
-
-[node name="testcharfeafullcolort" type="Sprite" parent="."]
-position = Vector2( 72, 82 )
-texture = ExtResource( 35 )
