@@ -29,9 +29,9 @@
 [ext_resource path="res://Player/stand left/main character walk  left 5.png" type="Texture" id=27]
 [ext_resource path="res://Player/walk left/main character walk left 2.png" type="Texture" id=28]
 [ext_resource path="res://Player/Player-Sprite.png" type="Texture" id=29]
+[ext_resource path="res://Player/Sprite.gd" type="Script" id=30]
 [ext_resource path="res://UI/testcharfeat.png" type="Texture" id=31]
 [ext_resource path="res://UI/skillbar.png" type="Texture" id=32]
-[ext_resource path="res://testcharfeat.png" type="Texture" id=33]
 [ext_resource path="res://World/light effect.png" type="Texture" id=34]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -250,15 +250,11 @@ shape = SubResource( 2 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
+pause_mode = 2
 position = Vector2( 19, 113 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 31 )
-
-[node name="Sprite2" type="Sprite" parent="CanvasLayer"]
-visible = false
-position = Vector2( 19.9016, 111.235 )
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 33 )
+script = ExtResource( 30 )
 
 [node name="skillbar" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 54.6489, 123.561 )
