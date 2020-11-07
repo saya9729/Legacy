@@ -23,5 +23,4 @@ func _on_Option_pressed():
 
 
 func _on_Quit_pressed():
-	
-	get_node("GameMenu").hide();
+	get_tree().quit();
