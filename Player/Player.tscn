@@ -46,11 +46,6 @@ animations = [ {
 "name": "stand left",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 19 ), ExtResource( 6 ), ExtResource( 20 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "stand right",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 3 ), ExtResource( 25 ) ],
 "loop": true,
 "name": "run left",
@@ -59,6 +54,11 @@ animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk right",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 19 ), ExtResource( 6 ), ExtResource( 20 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "stand right",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 3 ), ExtResource( 25 ) ],
@@ -229,7 +229,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -15 )
 texture = ExtResource( 29 )
 hframes = 26
-frame = 1
+frame = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
@@ -264,6 +264,13 @@ texture = ExtResource( 33 )
 position = Vector2( 54.6489, 123.561 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 32 )
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( -8.02211, -19.6912 )
