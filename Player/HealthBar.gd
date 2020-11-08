@@ -7,6 +7,11 @@ extends TextureProgress
 
 
 # Called when the node enters the scene tree for the first time.
+func _input(event):
+	if event.is_action_pressed("GameMenu"):
+		var pause_state =  !get_tree().paused
+		visible = pause_state;
+
 func _ready():
 	pass # Replace with function body.
 
