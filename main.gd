@@ -1,6 +1,8 @@
 extends KinematicBody2D
-
-var hp=80
+onready var timer=get_node("Timer")
+onready var timer2=get_node("Timer2")
+var hp=91
+var hp1
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -39,3 +41,17 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _ready():
+	timer.set_wait_time(2)
+	timer.start()
+func _on_Timer_timeout():
+	timer2.set_wait_time(0.5)
+	timer2.start()
+func _heal():
+	while(hp%20!=0 and hp1==hp):
+		hp+=1
+
+func _on_Timer2_timeout():
+	hp1=hp
+	_heal()
