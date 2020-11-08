@@ -10,10 +10,9 @@ extends TextureProgress
 func _input(event):
 	if event.is_action_pressed("GameMenu"):
 		var pause_state =  !get_tree().paused
+		visible = false;
 		visible = pause_state;
 
-func _ready():
-	pass # Replace with function body.
 
 func _physics_process(delta):
 	value=get_tree().root.get_node("Node2D").get_node("YSort").get_node("KinematicBody2D").hp
