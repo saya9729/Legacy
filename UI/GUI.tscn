@@ -35,7 +35,6 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameMenu"]
-visible = false
 margin_left = 10.2375
 margin_top = -0.709396
 margin_right = 143.237
@@ -58,8 +57,8 @@ margin_bottom = 16.0
 [node name="New game" type="TextureButton" parent="GameMenu/VBoxContainer"]
 margin_top = 20.0
 margin_right = 50.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 50, 10 )
+margin_bottom = 46.0
+rect_min_size = Vector2( 50, 26 )
 size_flags_horizontal = 0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
@@ -67,9 +66,9 @@ texture_hover = ExtResource( 6 )
 expand = true
 
 [node name="Label" type="Label" parent="GameMenu/VBoxContainer/New game"]
-margin_left = 79.044
+margin_left = 95.1508
 margin_top = -8.08969
-margin_right = 146.044
+margin_right = 162.151
 margin_bottom = 5.91026
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.133333, 0.576471, 0.533333, 1 )
@@ -82,8 +81,8 @@ __meta__ = {
 }
 
 [node name="SAveGame" type="TextureButton" parent="GameMenu/VBoxContainer"]
-margin_top = 34.0
-margin_bottom = 34.0
+margin_top = 50.0
+margin_bottom = 50.0
 size_flags_horizontal = 0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
@@ -106,9 +105,9 @@ __meta__ = {
 }
 
 [node name="LoadGame" type="TextureButton" parent="GameMenu/VBoxContainer"]
-margin_top = 38.0
+margin_top = 54.0
 margin_right = 50.0
-margin_bottom = 48.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 50, 10 )
 size_flags_horizontal = 0
 texture_normal = ExtResource( 5 )
@@ -132,9 +131,9 @@ __meta__ = {
 }
 
 [node name="Option" type="TextureButton" parent="GameMenu/VBoxContainer"]
-margin_top = 52.0
+margin_top = 68.0
 margin_right = 50.0
-margin_bottom = 62.0
+margin_bottom = 78.0
 rect_min_size = Vector2( 50, 10 )
 size_flags_horizontal = 0
 texture_normal = ExtResource( 5 )
@@ -158,9 +157,9 @@ __meta__ = {
 }
 
 [node name="Quit" type="TextureButton" parent="GameMenu/VBoxContainer"]
-margin_top = 66.0
+margin_top = 82.0
 margin_right = 50.0
-margin_bottom = 76.0
+margin_bottom = 92.0
 rect_min_size = Vector2( 50, 10 )
 size_flags_horizontal = 0
 texture_normal = ExtResource( 5 )

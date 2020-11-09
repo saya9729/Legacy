@@ -6,6 +6,7 @@ var hp1
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
 const ACCELERATION = 500
 const MAX_SPEED = 50
 const MAX_SPRINT_SPEED = 100
@@ -18,6 +19,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 # Called when the node enters the scene tree for the first time.func _process(delta):
+
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
@@ -42,6 +44,7 @@ func _physics_process(delta):
 #func _process(delta):
 #	pass
 
+		
 func _ready():
 	timer.set_wait_time(2)
 	timer.start()
