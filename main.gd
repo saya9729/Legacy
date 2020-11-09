@@ -1,6 +1,8 @@
 extends KinematicBody2D
-
-var hp=80
+onready var timer=get_node("Timer")
+onready var timer2=get_node("Timer2")
+var hp = 25
+var hp1
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -22,7 +24,7 @@ func _physics_process(delta):
 	input_vector.x = 2*(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
-		
+	
 	if input_vector != Vector2.ZERO:
 		animationTree.set("parameters/Stand/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
@@ -39,3 +41,17 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _ready():
+	timer.set_wait_time(2)
+	timer.start()
+func _on_Timer_timeout():
+	timer2.set_wait_time(0.5)
+	timer2.start()
+func _heal():
+	while(hp%20!=0 and hp1==hp):
+		hp+=1
+
+func _on_Timer2_timeout():
+	hp1=hp
+	_heal()

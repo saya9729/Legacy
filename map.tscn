@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://newtrest3.tres" type="TileSet" id=1]
 [ext_resource path="res://newtrest4.tres" type="TileSet" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/sampleWall.tscn" type="PackedScene" id=4]
-[ext_resource path="res://whitehealthbar.png" type="Texture" id=5]
-[ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=6]
-[ext_resource path="res://GUI.gd" type="Script" id=7]
+[ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/flipWall.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 317.231, 139.64 )
@@ -72,213 +71,27 @@ format = 1
 tile_data = PoolIntArray( -1310685, 3, 0, -1245149, 3, 0, -1179613, 3, 0, -1114077, 3, 0, -1048541, 3, 0, -983005, 3, 0, -917469, 3, 0, -851933, 3, 0, -786397, 3, 0, -720861, 3, 0, -655325, 3, 0, -589789, 3, 0, -524253, 3, 0, -458717, 3, 0, -393181, 3, 0, -327645, 3, 0, -262109, 3, 0, -196573, 3, 0, -131037, 3, 0, -65501, 3, 0, 35, 3, 0, 65571, 3, 0, 131107, 3, 0, 196643, 3, 0, 262179, 3, 0, 327715, 3, 0, 393251, 3, 0, 458787, 3, 0, 524323, 3, 0, 589859, 3, 0, 655395, 3, 0, 720931, 3, 0, 786467, 3, 0, 852003, 3, 0, 917539, 3, 0, 983075, 3, 0, 1048611, 3, 0, 1114147, 3, 0, 1179683, 3, 0, 1245219, 3, 0, 1376221, 1, 0, 1376222, 1, 0, 1376223, 1, 0, 1376224, 1, 0, 1376225, 1, 0, 1376226, 1, 0, 1376227, 1, 0, 1376228, 1, 0, 1376229, 1, 0, 1376230, 1, 0, 1376231, 1, 0, 1376232, 1, 0, 1376233, 1, 0, 1376234, 1, 0, 1376235, 1, 0, 1376236, 1, 0, 1376237, 1, 0, 1376238, 1, 0, 1376239, 1, 0, 1376240, 1, 0, 1310735, 2, 0, 1310736, 2, 0, 1310737, 2, 0, 1310738, 2, 0, 1310739, 2, 0, 1310740, 2, 0, 1310741, 2, 0, 1310742, 2, 0, 1310743, 2, 0, 1310744, 2, 0, 1310745, 2, 0, 1310746, 2, 0, 1310747, 2, 0, 1310748, 2, 0, 1310749, 2, 0, 1310750, 2, 0, 1310751, 2, 0, 1310752, 2, 0, 1310753, 2, 0, 1310754, 2, 0 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0.12549, 0.141176, 1 )
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="KinematicBody2D" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( -27.4769, 113.057 )
+position = Vector2( 7.76901, 36.36 )
 
 [node name="StaticBody2D" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -136.231, 42.36 )
+position = Vector2( -90.231, 65.36 )
 
 [node name="StaticBody2D2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -153.231, 34.36 )
+position = Vector2( -161.231, 33.36 )
 
 [node name="StaticBody2D3" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -108.743, 71.3363 )
+position = Vector2( -144.231, 41.36 )
 
-[node name="GUI" type="CanvasLayer" parent="."]
-script = ExtResource( 7 )
+[node name="StaticBody2D4" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -129.231, 65.36 )
 
-[node name="GameMenu" type="Control" parent="GUI"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="flipWall" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( -107.231, 69.36 )
 
-[node name="NinePatchRect" type="NinePatchRect" parent="GUI/GameMenu"]
-margin_left = 1.0
-margin_top = 1.0
-margin_right = 169.0
-margin_bottom = 94.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/GameMenu"]
-margin_top = 5.0
-margin_right = 142.0
-margin_bottom = 94.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer"]
-margin_right = 142.0
-margin_bottom = 14.0
-text = "Game Menu"
-
-[node name="MarginContainer" type="MarginContainer" parent="GUI/GameMenu/VBoxContainer"]
-margin_top = 18.0
-margin_right = 142.0
-margin_bottom = 18.0
-
-[node name="New game" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
-margin_top = 22.0
-margin_right = 50.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 50, 10 )
-size_flags_horizontal = 0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/New game"]
-margin_left = -7.57662
-margin_top = -0.84185
-margin_right = 59.4234
-margin_bottom = 13.1581
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color = Color( 0.133333, 0.576471, 0.533333, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "New game"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SAveGame" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
-margin_top = 36.0
-margin_right = 50.0
-margin_bottom = 46.0
-rect_min_size = Vector2( 50, 10 )
-size_flags_horizontal = 0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/SAveGame"]
-margin_left = -7.57662
-margin_top = -0.84185
-margin_right = 59.4234
-margin_bottom = 13.1581
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color = Color( 0.133333, 0.576471, 0.533333, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Save game"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LoadGame" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
-margin_top = 50.0
-margin_right = 50.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 50, 10 )
-size_flags_horizontal = 0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/LoadGame"]
-margin_left = -7.57662
-margin_top = -0.84185
-margin_right = 59.4234
-margin_bottom = 13.1581
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color = Color( 0.133333, 0.576471, 0.533333, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Load gane"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Option" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
-margin_top = 64.0
-margin_right = 50.0
-margin_bottom = 74.0
-rect_min_size = Vector2( 50, 10 )
-size_flags_horizontal = 0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Option"]
-margin_left = -7.57662
-margin_top = -1.12247
-margin_right = 59.4234
-margin_bottom = 12.8775
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color = Color( 0.133333, 0.576471, 0.533333, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Option"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Quit" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
-margin_top = 78.0
-margin_right = 50.0
-margin_bottom = 88.0
-rect_min_size = Vector2( 50, 10 )
-size_flags_horizontal = 0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Quit"]
-margin_left = -7.57662
-margin_top = -0.84185
-margin_right = 59.4234
-margin_bottom = 13.1581
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color = Color( 0.133333, 0.576471, 0.533333, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Quit"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionMenu" type="Control" parent="GUI"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NinePatchRect" type="NinePatchRect" parent="GUI/OptionMenu"]
-margin_left = 1.0
-margin_top = 1.0
-margin_right = 169.0
-margin_bottom = 94.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/OptionMenu"]
-margin_top = 5.0
-margin_right = 142.0
-margin_bottom = 94.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Option" to="GUI" method="_on_Option_pressed"]
-[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Quit" to="GUI" method="_on_Quit_pressed"]
+[node name="GUI" parent="." instance=ExtResource( 5 )]
