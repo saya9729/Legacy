@@ -1,6 +1,8 @@
 extends KinematicBody2D
 onready var timer=get_node("Timer")
 onready var timer2=get_node("Timer2")
+
+onready var Save_key : String = "Player" + name
 var hp = 61
 var stamina = 25
 var hp1
@@ -65,4 +67,15 @@ func _on_Timer2_timeout():
 	stamina1=stamina
 	_heal()
 	
-	
+func save(save_game: Resource):
+	save_game.data[Save_key] = {
+		'health': hp,
+		'stamina': stamina,
+	}
+
+
+func load(save_game: Resource):
+	var data: Dictionary = save_game.data[Save_key]
+	hp = data['health']
+	stamina = data['stamina']
+

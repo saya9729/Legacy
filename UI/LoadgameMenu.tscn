@@ -1,0 +1,221 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://save/GameSaver.gd" type="Script" id=1]
+[ext_resource path="res://UI/LoadgameMenu.gd" type="Script" id=2]
+[ext_resource path="res://save/GameSaver.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Font/pixellegacy.tres" type="DynamicFont" id=4]
+[ext_resource path="res://UI/hoveroption.png" type="Texture" id=5]
+[ext_resource path="res://UI/option.png" type="Texture" id=6]
+[ext_resource path="res://UI/pressedoption.png" type="Texture" id=7]
+[ext_resource path="res://UI/inventory.png" type="Texture" id=8]
+[ext_resource path="res://UI/savebox.png" type="Texture" id=9]
+
+[node name="LoadgameMenu" type="Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -79.6949
+margin_top = -49.8223
+margin_right = 88.305
+margin_bottom = 45.178
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = -39.9452
+margin_top = -20.1787
+margin_right = 200.055
+margin_bottom = 111.822
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 9.0
+margin_top = 26.0
+margin_right = 155.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Column 1" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save slot 1" type="TextureButton" parent="HBoxContainer/Column 1"]
+margin_right = 24.0
+margin_bottom = 15.0
+rect_clip_content = true
+size_flags_horizontal = 0
+texture_normal = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Column 1/Save slot 1"]
+margin_left = 1.29782
+margin_top = 0.230232
+margin_right = 23.2978
+margin_bottom = 10.2302
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
+text = "Save slot 1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save slot 2" type="TextureButton" parent="HBoxContainer/Column 1"]
+margin_top = 19.0
+margin_right = 24.0
+margin_bottom = 34.0
+rect_clip_content = true
+size_flags_horizontal = 0
+texture_normal = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Column 1/Save slot 2"]
+margin_left = 1.43026
+margin_top = 0.230232
+margin_right = 23.4303
+margin_bottom = 10.2302
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
+text = "Save slot 2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save slot 3" type="TextureButton" parent="HBoxContainer/Column 1"]
+margin_top = 38.0
+margin_right = 24.0
+margin_bottom = 53.0
+rect_clip_content = true
+size_flags_horizontal = 0
+texture_normal = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Column 1/Save slot 3"]
+margin_left = 1.29782
+margin_top = 0.230232
+margin_right = 23.2978
+margin_bottom = 10.2302
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
+text = "Save slot 3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Column 2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 28.0
+margin_right = 52.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save slot 4" type="TextureButton" parent="HBoxContainer/Column 2"]
+margin_right = 24.0
+margin_bottom = 15.0
+rect_clip_content = true
+size_flags_horizontal = 0
+texture_normal = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Column 2/Save slot 4"]
+margin_left = 1.29782
+margin_top = 0.230232
+margin_right = 23.2978
+margin_bottom = 10.2302
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
+text = "Save slot 4"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save slot 5" type="TextureButton" parent="HBoxContainer/Column 2"]
+margin_top = 19.0
+margin_right = 24.0
+margin_bottom = 34.0
+rect_clip_content = true
+size_flags_horizontal = 0
+texture_normal = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Column 2/Save slot 5"]
+margin_left = 1.43026
+margin_top = 0.230232
+margin_right = 23.4303
+margin_bottom = 10.2302
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
+text = "Save slot 5"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save slot 6" type="TextureButton" parent="HBoxContainer/Column 2"]
+margin_top = 38.0
+margin_right = 24.0
+margin_bottom = 53.0
+rect_clip_content = true
+size_flags_horizontal = 0
+texture_normal = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Column 2/Save slot 6"]
+margin_left = 1.29782
+margin_top = 0.230232
+margin_right = 23.2978
+margin_bottom = 10.2302
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
+text = "Save slot 6"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="TextureButton" parent="."]
+margin_left = 39.1342
+margin_top = 83.9822
+margin_right = 94.1342
+margin_bottom = 92.9822
+rect_min_size = Vector2( 40, 5 )
+rect_scale = Vector2( 0.5, 0.5 )
+size_flags_horizontal = 0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Back"]
+anchor_left = -0.140085
+anchor_top = 0.0119848
+anchor_right = 0.205369
+anchor_bottom = 0.678659
+margin_left = -4.74454
+margin_top = -1.01863
+margin_right = 56.2555
+margin_bottom = 12.9813
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
+text = "Back"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GameSaver" type="Node" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+[connection signal="pressed" from="HBoxContainer/Column 1/Save slot 1" to="." method="_on_Save_slot_1_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

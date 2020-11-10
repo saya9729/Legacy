@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://save/SaveGame.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+game_version = "0.01"
+data = {
+"PlayerKinematicBody2D": {
+"health": 62,
+"stamina": 35
+}
+}

@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/inventory.png" type="Texture" id=2]
 [ext_resource path="res://GUI.gd" type="Script" id=3]
 [ext_resource path="res://GameMenu.gd" type="Script" id=4]
 [ext_resource path="res://Font/pixellegacy.tres" type="DynamicFont" id=5]
+[ext_resource path="res://UI/SavegameMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/LoadgameMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/option.png" type="Texture" id=9]
 [ext_resource path="res://UI/hoveroption.png" type="Texture" id=10]
 [ext_resource path="res://UI/pressedoption.png" type="Texture" id=11]
@@ -15,10 +17,14 @@ script = ExtResource( 3 )
 [node name="GameMenu" type="Control" parent="."]
 pause_mode = 2
 visible = false
-margin_left = 40.3051
-margin_top = 17.6777
-margin_right = 208.305
-margin_bottom = 112.678
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -79.6949
+margin_top = -49.8223
+margin_right = 88.305
+margin_bottom = 45.178
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -185,6 +191,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LoadgameMenu" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="SavegameMenu" parent="." instance=ExtResource( 6 )]
+visible = false
+anchor_left = 0.733
+anchor_top = 0.543
+anchor_right = 0.733
+anchor_bottom = 0.543
+margin_left = -135.025
+margin_top = -54.462
+margin_right = 32.9749
+margin_bottom = 40.5383
+
 [node name="OptionMenu" type="Control" parent="."]
 visible = false
 margin_right = 40.0
@@ -211,4 +231,9 @@ __meta__ = {
 }
 [connection signal="pressed" from="GameMenu/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="GameMenu/VBoxContainer/Resume" to="GameMenu" method="_on_Resume_pressed"]
+[connection signal="pressed" from="GameMenu/VBoxContainer/Save game" to="." method="_on_Save_game_pressed"]
+[connection signal="pressed" from="GameMenu/VBoxContainer/Save game" to="GameMenu" method="_on_Save_game_pressed"]
+[connection signal="pressed" from="GameMenu/VBoxContainer/Load game" to="GameMenu" method="_on_Load_game_pressed"]
+[connection signal="pressed" from="GameMenu/VBoxContainer/Options" to="GameMenu" method="_on_Options_pressed"]
 [connection signal="pressed" from="GameMenu/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="GameMenu/VBoxContainer/Exit" to="GameMenu" method="_on_Exit_pressed"]
