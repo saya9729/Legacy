@@ -18,3 +18,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Resume_pressed():
+		var pause_state =  !get_tree().paused
+		get_tree().paused = pause_state
+		visible = pause_state;
