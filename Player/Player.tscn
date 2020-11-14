@@ -44,14 +44,14 @@ animations = [ {
 "name": "run right",
 "speed": 13.0
 }, {
+"frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 3 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "walk left",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk right",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 19 ), ExtResource( 6 ), ExtResource( 20 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "stand right",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 3 ), ExtResource( 25 ) ],
@@ -59,14 +59,14 @@ animations = [ {
 "name": "run left",
 "speed": 13.0
 }, {
+"frames": [ ExtResource( 8 ), ExtResource( 19 ), ExtResource( 6 ), ExtResource( 20 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "stand right",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 16 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 17 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "stand left",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 3 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "walk left",
 "speed": 10.0
 } ]
 
@@ -175,65 +175,65 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=25]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id=26]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id=27]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "walk_left"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=28]
-blend_point_0/node = SubResource( 25 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=17]
+blend_point_0/node = SubResource( 14 )
 blend_point_0/pos = Vector2( 0, 1.1 )
-blend_point_1/node = SubResource( 26 )
+blend_point_1/node = SubResource( 15 )
 blend_point_1/pos = Vector2( 0, -1.1 )
-blend_point_2/node = SubResource( 27 )
+blend_point_2/node = SubResource( 16 )
 blend_point_2/pos = Vector2( -1, 0 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "walk_right"
 
-[sub_resource type="AnimationNodeAnimation" id=29]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "walk_right"
 
-[sub_resource type="AnimationNodeAnimation" id=30]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "walk_right"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=20]
-blend_point_0/node = SubResource( 15 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=21]
+blend_point_0/node = SubResource( 18 )
 blend_point_0/pos = Vector2( 1, 0 )
-blend_point_1/node = SubResource( 29 )
+blend_point_1/node = SubResource( 19 )
 blend_point_1/pos = Vector2( 0, 1.1 )
-blend_point_2/node = SubResource( 30 )
+blend_point_2/node = SubResource( 20 )
 blend_point_2/pos = Vector2( 0, -1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
-[sub_resource type="AnimationNodeStateMachine" id=23]
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachine" id=26]
 states/Stand/node = SubResource( 13 )
 states/Stand/position = Vector2( 204.916, 111.62 )
-states/WalkL/node = SubResource( 28 )
+states/WalkL/node = SubResource( 17 )
 states/WalkL/position = Vector2( -7.343, 111.62 )
-states/WalkR/node = SubResource( 20 )
+states/WalkR/node = SubResource( 21 )
 states/WalkR/position = Vector2( 427.916, 111.62 )
-transitions = [ "Stand", "WalkR", SubResource( 21 ), "WalkR", "Stand", SubResource( 22 ), "WalkL", "Stand", SubResource( 31 ), "Stand", "WalkL", SubResource( 32 ) ]
+transitions = [ "Stand", "WalkR", SubResource( 22 ), "WalkR", "Stand", SubResource( 23 ), "WalkL", "Stand", SubResource( 24 ), "Stand", "WalkL", SubResource( 25 ) ]
 start_node = "Stand"
 graph_offset = Vector2( -172.343, 12.62 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=24]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -308,11 +308,11 @@ anims/walk_left = SubResource( 5 )
 anims/walk_right = SubResource( 6 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 23 )
+tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
-parameters/playback = SubResource( 24 )
+parameters/playback = SubResource( 27 )
 parameters/Stand/blend_position = Vector2( 0, 0 )
 parameters/WalkL/blend_position = Vector2( 0, 0 )
 parameters/WalkR/blend_position = Vector2( 0, 0 )
