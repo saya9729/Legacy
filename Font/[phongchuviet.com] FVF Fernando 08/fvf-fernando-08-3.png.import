@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/circle2.png-9fc68b60535b0db8678192e0cca5c76b.stex"
+path="res://.import/fvf-fernando-08-3.png-939a31ed1db5e05f3e2207721ff8ffa2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://circle2.png"
-dest_files=[ "res://.import/circle2.png-9fc68b60535b0db8678192e0cca5c76b.stex" ]
+source_file="res://Font/[phongchuviet.com] FVF Fernando 08/fvf-fernando-08-3.png"
+dest_files=[ "res://.import/fvf-fernando-08-3.png-939a31ed1db5e05f3e2207721ff8ffa2.stex" ]
 
 [params]
 
