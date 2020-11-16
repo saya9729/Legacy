@@ -37,7 +37,10 @@ func _physics_process(delta):
 		animationTree.set("parameters/Stand/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
 		animationState.travel("Walk")
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		if Input.is_action_pressed("ui_sprint"):
+			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED, ACCELERATION * delta)
+		else:
+			velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		animationState.travel("Stand")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
