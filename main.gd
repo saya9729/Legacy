@@ -33,6 +33,8 @@ func _physics_process(delta):
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	
+	if Input.is_action_just_pressed("ui_down"):
+		hp-=10
 	if input_vector != Vector2.ZERO:
 		animationTree.set("parameters/Stand/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
@@ -76,7 +78,10 @@ func save(save_game: Resource):
 		'stamina': stamina,
 		'postion':  get_position(),
 	}
-
+func _process(delta):
+	if hp==0:
+		var musicNode=$"Audio/Death"
+		musicNode.play()
 
 func load(save_game: Resource):
 	var data: Dictionary = save_game.data[Save_key]
