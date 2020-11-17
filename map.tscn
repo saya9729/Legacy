@@ -81,7 +81,7 @@ color = Color( 0, 0.12549, 0.141176, 1 )
 [node name="KinematicBody2D" parent="YSort" groups=[
 "save",
 ] instance=ExtResource( 3 )]
-position = Vector2( -208.457, -48.2154 )
+position = Vector2( -46.1106, 54.195 )
 
 [node name="StaticBody2D" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( -90.231, 65.36 )
