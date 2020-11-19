@@ -1,10 +1,11 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Player/CharacterUI.gd" type="Script" id=2]
 [ext_resource path="res://Player/sTAMINABAR.gd" type="Script" id=3]
 [ext_resource path="res://womendie.ogg" type="AudioStream" id=4]
 [ext_resource path="res://1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://walking-step.wav" type="AudioStream" id=6]
 [ext_resource path="res://Player/Player-Sprite.png" type="Texture" id=29]
 [ext_resource path="res://UI/testcharfeat.png" type="Texture" id=31]
 [ext_resource path="res://UI/skillbar.png" type="Texture" id=32]
@@ -195,14 +196,15 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="HealthBar" type="TextureProgress" parent="CanvasLayer/CharacterUI"]
-margin_left = -4.69134
-margin_top = 90.8567
-margin_right = 285.309
-margin_bottom = 390.857
+margin_left = -4.60737
+margin_top = 89.7606
+margin_right = 285.393
+margin_bottom = 389.761
 rect_scale = Vector2( 0.75, 0.75 )
 value = 50.0
 texture_under = ExtResource( 36 )
@@ -210,14 +212,15 @@ texture_progress = ExtResource( 33 )
 fill_mode = 5
 script = ExtResource( 35 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="sTAMINABAR" type="TextureProgress" parent="CanvasLayer/CharacterUI"]
-margin_left = -4.02392
-margin_top = 93.3595
-margin_right = 285.976
-margin_bottom = 393.36
+margin_left = -3.0
+margin_top = 92.0
+margin_right = 287.0
+margin_bottom = 392.001
 rect_scale = Vector2( 0.75, 0.75 )
 value = 70.0
 texture_under = ExtResource( 36 )
@@ -225,14 +228,18 @@ texture_progress = ExtResource( 37 )
 fill_mode = 5
 script = ExtResource( 3 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/CharacterUI"]
 pause_mode = 2
-position = Vector2( 18.9166, 113.417 )
+position = Vector2( 19.3926, 112.261 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 31 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="skillbar" type="Sprite" parent="CanvasLayer/CharacterUI"]
 position = Vector2( 53.9815, 124.812 )
@@ -243,7 +250,7 @@ texture = ExtResource( 32 )
 position = Vector2( 0, -15 )
 texture = ExtResource( 29 )
 hframes = 26
-frame = 2
+frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -15 )
@@ -286,11 +293,16 @@ parameters/WalkL/blend_position = Vector2( 0, 0 )
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Background music" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Background music" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 5 )
 autoplay = true
 
 [node name="Death" type="AudioStreamPlayer2D" parent="Audio"]
+position = Vector2( 1.12373, 1.49831 )
 stream = ExtResource( 4 )
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="Audio"]
+position = Vector2( 1.12373, 1.49831 )
+stream = ExtResource( 6 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

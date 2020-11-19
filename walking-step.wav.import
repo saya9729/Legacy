@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/walking-step.wav-bfbf14d0d3f9e6a0fd7bc66347a0d126.sample"
+
+[deps]
+
+source_file="res://walking-step.wav"
+dest_files=[ "res://.import/walking-step.wav-bfbf14d0d3f9e6a0fd7bc66347a0d126.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
