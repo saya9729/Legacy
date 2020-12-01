@@ -26,15 +26,40 @@ var velocity =  Vector2.ZERO
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+var bullet = preload("res://Player/combat/bullet.tscn")
+var can_fire = true
+var rate_of_fire = 0.4
+var shooting = false
 
 # Called when the node enters the scene tree for the first time.func _process(delta):
-
+func _process(delta):
+	if hp==0:
+		var musicNode=$"Audio/Death"
+		musicNode.play()
+	SkillLoop()
+		
 func _physics_process(delta):
 	match state:
 		MOVE:
 			move_state(delta)
 		ATTACK:
 			pass
+
+
+func SkillLoop():
+	if Input.is_action_pressed("Shoot") and can_fire == true:
+		can_fire = false
+		shooting = true
+		$Position2D.rotation = get_angle_to(get_global_mouse_position())
+		var bullet_instance = bullet.instance()
+		bullet_instance.position = $Position2D/ShootPoint.get_global_position()
+		bullet_instance.rotation = get_angle_to(get_global_mouse_position())
+		get_tree().get_root().add_child(bullet_instance)
+		yield(get_tree().create_timer(rate_of_fire), "timeout")
+		can_fire = true
+		shooting = false
+
+
 
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -50,7 +75,7 @@ func move_state(delta):
 		animationState.travel("Walk")
 		
 		if Input.is_action_pressed("ui_sprint") && (Input.is_action_pressed("ui_up")||Input.is_action_pressed("ui_down")):
-			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED * 0.75, ACCELERATION * delta)
+			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED, ACCELERATION * delta)
 			stamina-=0.5
 		elif Input.is_action_pressed("ui_sprint") && (Input.is_action_pressed("ui_right")||Input.is_action_pressed("ui_left")):
 			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED, ACCELERATION * delta)
@@ -79,10 +104,11 @@ func _on_Timer_timeout():
 	timer2.set_wait_time(0.5)
 	timer2.start()
 func _heal():
+	if !Input.is_action_pressed("ui_sprint"):
+		while(stamina<=stamina_limit and stamina1==stamina):
+			stamina+=10	
 	while(hp%20!=0 and hp1==hp and hp<=hp_limit):
-		hp+=1
-	while(stamina<=stamina_limit and stamina1==stamina):
-		stamina+=10	
+			hp+=1
 func _on_Timer2_timeout():
 	hp1=hp
 	stamina1=stamina
@@ -95,10 +121,7 @@ func save(save_game: Resource):
 		'postion':  get_position(),
 }
 
-func _process(delta):
-	if hp==0:
-		var musicNode=$"Audio/Death"
-		musicNode.play()
+
 
 func load(save_game: Resource):
 	var data: Dictionary = save_game.data[Save_key]
