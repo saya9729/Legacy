@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/inventory.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Font/pixellegacy.tres" type="DynamicFont" id=5]
 [ext_resource path="res://UI/SavegameMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/LoadgameMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/CharacterUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/option.png" type="Texture" id=9]
 [ext_resource path="res://UI/hoveroption.png" type="Texture" id=10]
 [ext_resource path="res://UI/pressedoption.png" type="Texture" id=11]
@@ -229,6 +230,8 @@ margin_bottom = 94.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CharacterUI" parent="." instance=ExtResource( 8 )]
 [connection signal="pressed" from="GameMenu/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="GameMenu/VBoxContainer/Resume" to="GameMenu" method="_on_Resume_pressed"]
 [connection signal="pressed" from="GameMenu/VBoxContainer/Save game" to="." method="_on_Save_game_pressed"]

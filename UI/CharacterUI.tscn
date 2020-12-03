@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player/HealthBar.gd" type="Script" id=1]
+[ext_resource path="res://Player/sTAMINABAR.gd" type="Script" id=3]
+[ext_resource path="res://UI/red.png" type="Texture" id=4]
+[ext_resource path="res://UI/STARING.png" type="Texture" id=5]
+[ext_resource path="res://UI/testcharfeat.png" type="Texture" id=6]
+[ext_resource path="res://UI/skillbar.png" type="Texture" id=7]
+[ext_resource path="res://circle.png" type="Texture" id=8]
+
+[node name="CharacterUI" type="Control"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -4.60737
+margin_top = 89.7606
+margin_right = 285.393
+margin_bottom = 389.761
+rect_scale = Vector2( 0.75, 0.75 )
+value = 50.0
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 4 )
+fill_mode = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="sTAMINABAR" type="TextureProgress" parent="."]
+margin_left = -3.0
+margin_top = 92.0
+margin_right = 287.0
+margin_bottom = 392.001
+rect_scale = Vector2( 0.75, 0.75 )
+value = 70.0
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 5 )
+fill_mode = 5
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+pause_mode = 2
+position = Vector2( 19.3926, 112.261 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="skillbar" type="Sprite" parent="."]
+position = Vector2( 53.9815, 124.812 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 7 )

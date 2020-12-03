@@ -17,7 +17,8 @@ const FRICTION = 500
 
 enum{
 	MOVE,
-	ATTACK
+	ATTACK,
+	SHOOT
 }
 
 var state = MOVE
@@ -37,7 +38,7 @@ func _process(delta):
 		var musicNode=$"Audio/Death"
 		musicNode.play()
 	SkillLoop()
-		
+	
 func _physics_process(delta):
 	match state:
 		MOVE:
@@ -67,21 +68,18 @@ func move_state(delta):
 	input_vector.y = (Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up"))
 	input_vector = input_vector.normalized()
 	
-	if Input.is_action_just_pressed("ui_down"):
-		hp-=10
 	if input_vector != Vector2.ZERO:
 		animationTree.set("parameters/Stand/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
 		animationState.travel("Walk")
 		
-		if Input.is_action_pressed("ui_sprint") && (Input.is_action_pressed("ui_up")||Input.is_action_pressed("ui_down")):
-			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED, ACCELERATION * delta)
+		if stamina != 0 and Input.is_action_pressed("ui_sprint") and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")):
+			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED * 0.9, ACCELERATION * delta)
 			stamina-=0.5
-		elif Input.is_action_pressed("ui_sprint") && (Input.is_action_pressed("ui_right")||Input.is_action_pressed("ui_left")):
-			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED, ACCELERATION * delta)
+		elif stamina != 0 and Input.is_action_pressed("ui_sprint") and (Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")):
+			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED , ACCELERATION * delta)
 			stamina-=0.5
 		else:
-			
 			velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 			
 	else:
@@ -89,6 +87,8 @@ func move_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 	velocity =  move_and_slide(velocity)
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

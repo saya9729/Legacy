@@ -6,9 +6,9 @@
 script = ExtResource( 1 )
 game_version = "0.01"
 data = {
-"PlayerKinematicBody2D": {
-"health": 67,
-"postion": Vector2( -151.381, -37.0885 ),
-"stamina": 85
+"PlayerPlayer": {
+"health": 60,
+"postion": Vector2( 89.4715, 163.722 ),
+"stamina": 12.5
 }
 }

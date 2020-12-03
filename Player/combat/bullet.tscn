@@ -11,10 +11,11 @@ contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -2, -1.01563, 0.992188, -0.5, -2, 0.015625 )
+position = Vector2( 0.644888, 0.58471 )
+scale = Vector2( 1.12055, 1.14674 )
+polygon = PoolVector2Array( -2.0257, -0.986785, 0.867702, -0.979973, 0.874674, -0.0398066, -2.0257, -0.0398066 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -1.81041, -0.510102 )
-scale = Vector2( 0.0568227, 0.152743 )
+scale = Vector2( 0.0323346, 0.108076 )
 texture = ExtResource( 1 )
 [connection signal="body_entered" from="." to="." method="_on_bullet_body_entered"]
