@@ -44,7 +44,7 @@ func _physics_process(delta):
 		MOVE:
 			move_state(delta)
 		ATTACK:
-			pass
+			attack_state(delta)
 
 
 func SkillLoop():
@@ -87,9 +87,13 @@ func move_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 	velocity =  move_and_slide(velocity)
+	
+	if Input.is_action_just_pressed("attack"):
+		state=ATTACK
 
 
-
+func attack_state(delta):
+	velocity =  Vector2.ZERO
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -106,9 +110,9 @@ func _on_Timer_timeout():
 func _heal():
 	if !Input.is_action_pressed("ui_sprint"):
 		while(stamina<=stamina_limit and stamina1==stamina):
-			stamina+=10	
+			stamina+=10
 	while(hp%20!=0 and hp1==hp and hp<=hp_limit):
-			hp+=1
+		hp+=1
 func _on_Timer2_timeout():
 	hp1=hp
 	stamina1=stamina
