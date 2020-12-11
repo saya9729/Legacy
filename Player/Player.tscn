@@ -1,7 +1,7 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprite-0005-sheet.png" type="Texture" id=2]
+[ext_resource path="res://Player/main action.png" type="Texture" id=2]
 [ext_resource path="res://womendie.ogg" type="AudioStream" id=4]
 [ext_resource path="res://1.ogg" type="AudioStream" id=5]
 [ext_resource path="res://walking-step.wav" type="AudioStream" id=6]
@@ -12,50 +12,9 @@
 radius = 6.0
 height = 14.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "attack"
-length = 0.9
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 1,
-"values": [  ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayer/Sprite-0005-sheet:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
-}
-
 [sub_resource type="Animation" id=3]
 loop = true
 step = 0.077
-tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.231, 0.462, 0.693, 0.924 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
-}
 
 [sub_resource type="Animation" id=4]
 loop = true
@@ -172,7 +131,7 @@ blend_mode = 1
 states/Stand/node = SubResource( 13 )
 states/Stand/position = Vector2( 204.916, 111.62 )
 states/Walk/node = SubResource( 18 )
-states/Walk/position = Vector2( 427.916, 111.62 )
+states/Walk/position = Vector2( 428.916, 111.62 )
 transitions = [ "Stand", "Walk", SubResource( 19 ), "Walk", "Stand", SubResource( 20 ) ]
 start_node = "Stand"
 graph_offset = Vector2( -172.343, 12.62 )
@@ -185,10 +144,11 @@ collision_mask = 4
 script = ExtResource( 1 )
 
 [node name="PlayerSprite" type="Sprite" parent="."]
-position = Vector2( 0, -15 )
+position = Vector2( 5, -10 )
 texture = ExtResource( 2 )
-hframes = 13
-frame = 3
+vframes = 4
+hframes = 28
+frame = 14
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 4 )
@@ -196,6 +156,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 position = Vector2( -8.02211, -19.6912 )
 scale = Vector2( 0.340901, 0.33636 )
 texture = ExtResource( 34 )
@@ -206,16 +167,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/attack = SubResource( 2 )
 anims/stand_left = SubResource( 3 )
 anims/stand_right = SubResource( 4 )
 anims/walk_left = SubResource( 5 )
 anims/walk_right = SubResource( 6 )
-
-[node name="Sprite-0005-sheet" type="Sprite" parent="AnimationPlayer"]
-position = Vector2( 263.752, -26.145 )
-texture = ExtResource( 2 )
-hframes = 13
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 21 )
@@ -223,7 +178,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
 parameters/playback = SubResource( 22 )
-parameters/Stand/blend_position = Vector2( 0, 0 )
+parameters/Stand/blend_position = Vector2( -0.00317967, 0.0284483 )
 parameters/Walk/blend_position = Vector2( 0, 0 )
 
 [node name="Timer" type="Timer" parent="."]
