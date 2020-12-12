@@ -1,4 +1,10 @@
+# Main Function for Main Character
 extends KinematicBody2D
+
+var anima_direction="right"
+var anima_mode="stand"
+var animation
+
 onready var timer=get_node("Timer")
 onready var timer2=get_node("Timer2")
 
