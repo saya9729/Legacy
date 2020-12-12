@@ -148,6 +148,7 @@ position = Vector2( 1.05545, 42 )
 scale = Vector2( 0.951386, 1 )
 texture = ExtResource( 8 )
 hframes = 5
+frame = 4
 
 [node name="Fly" type="AnimationPlayer" parent="YSort/Enemy"]
 anims/Stand = SubResource( 2 )
