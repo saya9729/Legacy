@@ -412,7 +412,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 17
+frame = 67
 __meta__ = {
 "_edit_lock_": true
 }
@@ -452,7 +452,6 @@ anims/walk_right = SubResource( 13 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 36 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 process_mode = 0
 parameters/playback = SubResource( 37 )
 parameters/Attack/blend_position = Vector2( 0, 0 )
@@ -498,14 +497,14 @@ __meta__ = {
 [node name="bullet" parent="." instance=ExtResource( 7 )]
 
 [node name="HitboxPivot" type="Position2D" parent="."]
-position = Vector2( -6, -11 )
+position = Vector2( 0, -11 )
+rotation = 3.14159
 
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
-position = Vector2( -8, 4 )
+position = Vector2( -13, 0 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/Hitbox"]
-position = Vector2( 2, -3 )
+position = Vector2( 0, 1.90735e-06 )
 shape = SubResource( 38 )
-disabled = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
