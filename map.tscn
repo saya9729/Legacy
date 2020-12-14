@@ -89,33 +89,47 @@ __meta__ = {
 [node name="Player" parent="YSort" groups=[
 "save",
 ] instance=ExtResource( 3 )]
-position = Vector2( -221.966, -33.9744 )
+position = Vector2( -162.231, -23.64 )
 
-[node name="StaticBody2D" parent="YSort" instance=ExtResource( 4 )]
+[node name="Enemies" type="YSort" parent="YSort"]
+
+[node name="Mob" parent="YSort/Enemies" instance=ExtResource( 7 )]
+position = Vector2( -178.231, -30.64 )
+
+[node name="Mob2" parent="YSort/Enemies" instance=ExtResource( 7 )]
+position = Vector2( -243.231, 13.36 )
+
+[node name="Mob3" parent="YSort/Enemies" instance=ExtResource( 7 )]
+position = Vector2( -333.231, -52.64 )
+
+[node name="Mob4" parent="YSort/Enemies" instance=ExtResource( 7 )]
+position = Vector2( -234.231, -55.64 )
+
+[node name="Walls" type="YSort" parent="YSort"]
+
+[node name="StaticBody2D" parent="YSort/Walls" instance=ExtResource( 4 )]
 position = Vector2( -90.231, 65.36 )
 collision_layer = 5
 collision_mask = 5
 
-[node name="StaticBody2D2" parent="YSort" instance=ExtResource( 4 )]
+[node name="StaticBody2D2" parent="YSort/Walls" instance=ExtResource( 4 )]
 position = Vector2( -161.231, 33.36 )
 collision_layer = 5
 collision_mask = 5
 
-[node name="StaticBody2D3" parent="YSort" instance=ExtResource( 4 )]
+[node name="StaticBody2D3" parent="YSort/Walls" instance=ExtResource( 4 )]
 position = Vector2( -144.231, 41.36 )
 collision_layer = 5
 collision_mask = 5
 
-[node name="StaticBody2D4" parent="YSort" instance=ExtResource( 4 )]
+[node name="StaticBody2D4" parent="YSort/Walls" instance=ExtResource( 4 )]
 position = Vector2( -141.231, 70.36 )
 collision_layer = 5
 collision_mask = 5
 
-[node name="flipWall" parent="YSort" instance=ExtResource( 6 )]
+[node name="flipWall" parent="YSort/Walls" instance=ExtResource( 6 )]
 position = Vector2( -27.05, 135.732 )
 collision_layer = 5
 collision_mask = 5
-
-[node name="Mob" parent="YSort" instance=ExtResource( 7 )]
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
