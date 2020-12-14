@@ -31,6 +31,9 @@ extents = Vector2( 4.7625, 6.37695 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 317.231, 139.64 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 mode = 1
@@ -95,13 +98,19 @@ tile_data = PoolIntArray( -1310685, 3, 0, -1245149, 3, 0, -1179613, 3, 0, -11140
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color( 0, 0.12549, 0.141176, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="YSort" type="YSort" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Player" parent="YSort" groups=[
 "save",
 ] instance=ExtResource( 3 )]
-position = Vector2( -211.846, -31.3949 )
+position = Vector2( -221.966, -33.9744 )
 
 [node name="StaticBody2D" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( -90.231, 65.36 )
@@ -129,7 +138,7 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="Enemy" type="KinematicBody2D" parent="YSort"]
-position = Vector2( -169.566, -69.728 )
+position = Vector2( -178.503, -67.3903 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
@@ -140,7 +149,6 @@ position = Vector2( 1.05545, 42 )
 scale = Vector2( 0.951386, 1 )
 texture = ExtResource( 8 )
 hframes = 5
-frame = 4
 
 [node name="Fly" type="AnimationPlayer" parent="YSort/Enemy"]
 anims/Stand = SubResource( 1 )

@@ -51,6 +51,8 @@ func _physics_process(delta):
 			move_state(delta)
 		ATTACK:
 			attack_state(delta)
+		SHOOT:
+			pass
 
 
 func SkillLoop():
@@ -77,6 +79,7 @@ func move_state(delta):
 	if input_vector != Vector2.ZERO:
 		animationTree.set("parameters/Stand/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
+		animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationState.travel("Walk")
 		
 		if stamina != 0 and Input.is_action_pressed("ui_sprint") and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")):
@@ -95,11 +98,15 @@ func move_state(delta):
 	velocity =  move_and_slide(velocity)
 	
 	if Input.is_action_just_pressed("attack"):
-		state=ATTACK
-
+		state = ATTACK
 
 func attack_state(delta):
-	velocity =  Vector2.ZERO
+	velocity = Vector2.ZERO
+	animationState.travel("Attack")
+	
+func attack_anmation_finished():
+	state = MOVE
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
