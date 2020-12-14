@@ -387,14 +387,14 @@ states/Attack/position = Vector2( -67.343, 111.62 )
 states/Die/node = SubResource( 21 )
 states/Die/position = Vector2( 513.657, 40.62 )
 states/Hurt/node = SubResource( 22 )
-states/Hurt/position = Vector2( 159.657, 334.62 )
+states/Hurt/position = Vector2( 265.657, 252.62 )
 states/Stand/node = SubResource( 25 )
 states/Stand/position = Vector2( 205.916, 111.62 )
 states/Walk/node = SubResource( 28 )
 states/Walk/position = Vector2( 428.916, 111.62 )
 transitions = [ "Stand", "Walk", SubResource( 29 ), "Walk", "Stand", SubResource( 30 ), "Attack", "Stand", SubResource( 31 ), "Stand", "Attack", SubResource( 32 ), "Stand", "Die", SubResource( 33 ), "Stand", "Hurt", SubResource( 34 ), "Hurt", "Stand", SubResource( 35 ) ]
 start_node = "Stand"
-graph_offset = Vector2( -93.4798, 69.632 )
+graph_offset = Vector2( -215.185, -21.4675 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=37]
 
@@ -412,7 +412,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 67
+frame = 95
 __meta__ = {
 "_edit_lock_": true
 }
