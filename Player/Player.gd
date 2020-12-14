@@ -9,7 +9,7 @@ onready var timer=get_node("Timer")
 onready var timer2=get_node("Timer2")
 
 onready var Save_key : String = "Player" + name
-var hp = 60
+var hp = 61
 var stamina = 25
 var hp1
 var stamina1
@@ -39,7 +39,7 @@ var rate_of_fire = 0.4
 var shooting = false
 
 # Called when the node enters the scene tree for the first time.func _process(delta):
-func _process(delta):
+func _physics_process(delta):
 	if hp==0:
 		var musicNode=$"Audio/Death"
 		musicNode.play()
@@ -65,7 +65,8 @@ func SkillLoop():
 		yield(get_tree().create_timer(rate_of_fire), "timeout")
 		can_fire = true
 		shooting = false
-	state = MOVE
+	else:
+		state = MOVE
 
 
 
