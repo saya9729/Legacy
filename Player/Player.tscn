@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/main action.png" type="Texture" id=2]
@@ -334,12 +334,6 @@ animation = "stand_right"
 [sub_resource type="AnimationNodeAnimation" id=39]
 animation = "stand_left"
 
-[sub_resource type="AnimationNodeAnimation" id=40]
-animation = "stand_left"
-
-[sub_resource type="AnimationNodeAnimation" id=41]
-animation = "stand_right"
-
 [sub_resource type="AnimationNodeAnimation" id=42]
 animation = "stand_right"
 
@@ -349,13 +343,9 @@ blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 24 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_point_2/node = SubResource( 39 )
-blend_point_2/pos = Vector2( -0.2, 1.1 )
-blend_point_3/node = SubResource( 40 )
-blend_point_3/pos = Vector2( -0.2, -1.1 )
-blend_point_4/node = SubResource( 41 )
-blend_point_4/pos = Vector2( 0.24, 1.08 )
-blend_point_5/node = SubResource( 42 )
-blend_point_5/pos = Vector2( 0.2, -1.1 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 42 )
+blend_point_3/pos = Vector2( 0, -1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 snap = Vector2( 0.01, 0.01 )
@@ -404,7 +394,7 @@ states/Walk/node = SubResource( 28 )
 states/Walk/position = Vector2( 428.916, 111.62 )
 transitions = [ "Stand", "Walk", SubResource( 29 ), "Walk", "Stand", SubResource( 30 ), "Attack", "Stand", SubResource( 31 ), "Stand", "Attack", SubResource( 32 ), "Stand", "Die", SubResource( 33 ), "Stand", "Hurt", SubResource( 34 ), "Hurt", "Stand", SubResource( 35 ) ]
 start_node = "Stand"
-graph_offset = Vector2( -351.732, -15.04 )
+graph_offset = Vector2( -93.4798, 69.632 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=37]
 
