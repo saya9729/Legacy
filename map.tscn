@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://newtrest3.tres" type="TileSet" id=1]
 [ext_resource path="res://newtrest4.tres" type="TileSet" id=2]
@@ -6,28 +6,7 @@
 [ext_resource path="res://World/sampleWall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/flipWall.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Enemy.gd" type="Script" id=7]
-[ext_resource path="res://Bat.png" type="Texture" id=8]
-[ext_resource path="res://Hurtbox.tscn" type="PackedScene" id=10]
-
-[sub_resource type="Animation" id=1]
-length = 0.8
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 4, 4, 4 ]
-}
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.7625, 6.37695 )
+[ext_resource path="res://Mob/Mob.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 317.231, 139.64 )
@@ -128,7 +107,7 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="StaticBody2D4" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -139.476, 72.0417 )
+position = Vector2( -141.231, 70.36 )
 collision_layer = 5
 collision_mask = 5
 
@@ -137,30 +116,6 @@ position = Vector2( -27.05, 135.732 )
 collision_layer = 5
 collision_mask = 5
 
-[node name="Enemy" type="KinematicBody2D" parent="YSort"]
-position = Vector2( -178.503, -67.3903 )
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="YSort/Enemy"]
-position = Vector2( 1.05545, 42 )
-scale = Vector2( 0.951386, 1 )
-texture = ExtResource( 8 )
-hframes = 5
-
-[node name="Fly" type="AnimationPlayer" parent="YSort/Enemy"]
-anims/Stand = SubResource( 1 )
-
-[node name="Hurtbox" parent="YSort/Enemy" instance=ExtResource( 10 )]
-position = Vector2( 0.707108, -0.707108 )
-
-[node name="CollisionShape2D" parent="YSort/Enemy/Hurtbox" index="0"]
-position = Vector2( 1.41422, 39.5981 )
-shape = SubResource( 2 )
+[node name="Mob" parent="YSort" instance=ExtResource( 7 )]
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
-[connection signal="area_entered" from="YSort/Enemy/Hurtbox" to="YSort/Enemy" method="_on_Hurtbox_area_entered"]
-
-[editable path="YSort/Enemy/Hurtbox"]

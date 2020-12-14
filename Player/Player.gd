@@ -43,16 +43,14 @@ func _process(delta):
 	if hp==0:
 		var musicNode=$"Audio/Death"
 		musicNode.play()
-	SkillLoop()
 	
-func _physics_process(delta):
 	match state:
 		MOVE:
 			move_state(delta)
 		ATTACK:
 			attack_state(delta)
 		SHOOT:
-			pass
+			SkillLoop()
 
 
 func SkillLoop():
@@ -67,6 +65,7 @@ func SkillLoop():
 		yield(get_tree().create_timer(rate_of_fire), "timeout")
 		can_fire = true
 		shooting = false
+	state = MOVE
 
 
 
@@ -90,7 +89,7 @@ func move_state(delta):
 			stamina-=0.5
 		else:
 			velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
-			
+		
 	else:
 		animationState.travel("Stand")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -99,6 +98,9 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+	
+	if Input.is_action_just_pressed("Shoot"):
+		state = SHOOT
 
 func attack_state(delta):
 	velocity = Vector2.ZERO
