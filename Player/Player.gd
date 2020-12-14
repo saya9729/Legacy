@@ -4,7 +4,7 @@ extends KinematicBody2D
 var anima_direction="right"
 var anima_mode="stand"
 var animation
-
+var isRight = true
 onready var timer=get_node("Timer")
 onready var timer2=get_node("Timer2")
 
@@ -54,6 +54,8 @@ func _physics_process(delta):
 			pass
 		SHOOT:
 			SkillLoop()
+		KICK:
+			kick_state(delta)	
 
 func SkillLoop():
 	if Input.is_action_pressed("Shoot") and can_fire == true:
@@ -76,11 +78,25 @@ func move_state(delta):
 	input_vector.y = (Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up"))
 	input_vector = input_vector.normalized()
 	
+	
 	if input_vector != Vector2.ZERO:
-		animationTree.set("parameters/Stand/blend_position", input_vector)
-		animationTree.set("parameters/Walk/blend_position", input_vector)
-		animationTree.set("parameters/Attack/blend_position", input_vector)
-		animationState.travel("Walk")
+		if Input.is_action_pressed("ui_left"):
+				isRight= false
+		elif Input.is_action_pressed("ui_right"):
+				isRight= true	
+		if isRight:
+			animationTree.set("parameters/StandRight/blend_position", input_vector)
+			animationTree.set("parameters/WalkRight/blend_position", input_vector)
+			animationTree.set("parameters/AttackRight/blend_position", input_vector)
+			animationTree.set("parameters/KickRight/blend_position", input_vector)
+			
+			animationState.travel("WalkRight")
+		else: 
+			animationTree.set("parameters/StandLeft/blend_position", input_vector)
+			animationTree.set("parameters/WalkLeft/blend_position", input_vector)
+			animationTree.set("parameters/AttackLeft/blend_position", input_vector)
+			animationTree.set("parameters/KickLeft/blend_position", input_vector)
+			animationState.travel("WalkLeft")	
 		
 		if stamina != 0 and Input.is_action_pressed("ui_sprint") and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")):
 			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED * 0.9, ACCELERATION * delta)
@@ -88,17 +104,24 @@ func move_state(delta):
 		elif stamina != 0 and Input.is_action_pressed("ui_sprint") and (Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")):
 			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED , ACCELERATION * delta)
 			stamina-=0.5
+			
 		else:
 			velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 		
 	else:
-		animationState.travel("Stand")
+		if isRight:
+			animationState.travel("StandRight")
+		else:
+			animationState.travel("StandLeft")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 	velocity =  move_and_slide(velocity)
 	
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+		
+	if Input.is_action_just_pressed("kick"):
+		state = KICK	
 	
 	if Input.is_action_just_pressed("Shoot"):
 		state = SHOOT
@@ -106,12 +129,21 @@ func move_state(delta):
 # warning-ignore:unused_argument
 func attack_state():
 	velocity = Vector2.ZERO
-	animationState.travel("Attack")
-	
+	if isRight:
+		animationState.travel("AttackRight")
+	else:
+		animationState.travel("AttackLeft")		
 func attack_anmation_finished():
 	state = MOVE
 	
-
+func kick_state(delta):
+	velocity = Vector2.ZERO
+	if isRight:
+		animationState.travel("KickRight")
+	else:
+		animationState.travel("KickLeft")		
+func kick_anmation_finished():
+	state = MOVE
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
