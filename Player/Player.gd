@@ -50,12 +50,10 @@ func _physics_process(delta):
 			move_state(delta)
 		ATTACK:
 			attack_state()
-		KICK:
-			pass
 		SHOOT:
 			SkillLoop()
 		KICK:
-			kick_state(delta)	
+			kick_state()
 
 func SkillLoop():
 	if Input.is_action_pressed("Shoot") and can_fire == true:
@@ -88,8 +86,7 @@ func move_state(delta):
 			animationTree.set("parameters/StandRight/blend_position", input_vector)
 			animationTree.set("parameters/WalkRight/blend_position", input_vector)
 			animationTree.set("parameters/AttackRight/blend_position", input_vector)
-			animationTree.set("parameters/KickRight/blend_position", input_vector)
-			
+			animationTree.set("parameters/KickRight/blend_position", input_vector)			
 			animationState.travel("WalkRight")
 		else: 
 			animationTree.set("parameters/StandLeft/blend_position", input_vector)
@@ -132,16 +129,16 @@ func attack_state():
 	if isRight:
 		animationState.travel("AttackRight")
 	else:
-		animationState.travel("AttackLeft")		
+		animationState.travel("AttackLeft")
 func attack_anmation_finished():
 	state = MOVE
 	
-func kick_state(delta):
+func kick_state():
 	velocity = Vector2.ZERO
 	if isRight:
 		animationState.travel("KickRight")
 	else:
-		animationState.travel("KickLeft")		
+		animationState.travel("KickLeft")
 func kick_anmation_finished():
 	state = MOVE
 # Called every frame. 'delta' is the elapsed time since the previous frame.
