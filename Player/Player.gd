@@ -10,11 +10,25 @@ onready var timer2=get_node("Timer2")
 
 onready var Save_key : String = "Player" + name
 var hp = 61
-var stamina = 25
 var hp1
 var stamina1
 var hp_limit=100
 var stamina_limit=100
+
+var health=61
+var max_health=100
+var health_regen_rate=1
+var movement_speed_walk=50
+var movement_speed_run=85
+var stamina=100
+var stamina_regen_rate=10
+var max_stamina=100
+var stamina_cost=0.75
+var dead=false
+var tired=false
+var health_section=20
+var in_combat=false
+var haste=false
 
 const ACCELERATION = 500
 const MAX_SPEED = 50
@@ -41,19 +55,22 @@ var shooting = false
 
 # Called when the node enters the scene tree for the first time.func _process(delta):
 func _physics_process(delta):
-	if hp==0:
+	if dead:
 		var musicNode=$"Audio/Death"
 		musicNode.play()
-	
-	match state:
-		MOVE:
-			move_state(delta)
-		ATTACK:
-			attack_state()
-		SHOOT:
-			SkillLoop()
-		KICK:
-			kick_state()
+	else:
+		match state:
+			MOVE:
+				haste=false
+				if Input.is_action_pressed("ui_sprint"):
+					haste=true
+				move_state(delta,haste)
+			ATTACK:
+				attack_state()
+			SHOOT:
+				SkillLoop()
+			KICK:
+				kick_state()
 
 func SkillLoop():
 	if Input.is_action_pressed("Shoot") and can_fire == true:
@@ -70,7 +87,7 @@ func SkillLoop():
 	else:
 		state = MOVE
 
-func move_state(delta):
+func move_state(delta,haste:bool):
 	var input_vector = Vector2.ZERO
 	input_vector.x = 2*(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
 	input_vector.y = (Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up"))
@@ -95,15 +112,19 @@ func move_state(delta):
 			animationTree.set("parameters/KickLeft/blend_position", input_vector)
 			animationState.travel("WalkLeft")	
 		
-		if stamina != 0 and Input.is_action_pressed("ui_sprint") and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")):
-			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED * 0.9, ACCELERATION * delta)
-			stamina-=0.5
-		elif stamina != 0 and Input.is_action_pressed("ui_sprint") and (Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")):
-			velocity = velocity.move_toward(input_vector * MAX_SPRINT_SPEED , ACCELERATION * delta)
-			stamina-=0.5
-			
+		var angle_ratio=1
+		if input_vector.x==0:
+			angle_ratio=1
+		elif input_vector.y==0:
+			angle_ratio=2
 		else:
-			velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+			angle_ratio=sqrt(5)/2.0
+			
+		if !haste or stamina==0 or tired:
+			velocity = velocity.move_toward(input_vector * movement_speed_walk*angle_ratio, ACCELERATION * delta)
+		else:
+			velocity = velocity.move_toward(input_vector * movement_speed_run*angle_ratio, ACCELERATION * delta)
+			reduce_stamina(stamina_cost)
 		
 	else:
 		if isRight:
@@ -179,3 +200,34 @@ func load(save_game: Resource):
 	stamina = data['stamina']
 	position = data['postion']
 
+func add_health(gain:float):
+	health+=gain
+	if health>max_health:
+		health=max_health
+	
+func reduce_health(lose:float):
+	health-=lose
+	if health<0:
+		health=0
+		dead=true
+
+func add_stamina(gain:float):
+	stamina+=gain
+	if stamina >max_stamina:
+		stamina=max_stamina
+		tired=false
+	
+func reduce_stamina(lose:float):
+	stamina-=lose
+	if stamina<0:
+		stamina=0
+		tired=true
+		
+func auto_regen_health():
+	if health % health_section!=0:
+		add_health(health_regen_rate)
+		
+func auto_regen_stamina():
+	add_stamina(stamina_regen_rate)
+	if stamina==max_stamina and tired:
+		tired=false
