@@ -1,9 +1,8 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func toggle_visibility():
+	visible = !visible
 
 
 # Called when the node enters the scene tree for the first time.

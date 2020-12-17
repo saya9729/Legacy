@@ -55,6 +55,7 @@ var shooting = false
 
 # Called when the node enters the scene tree for the first time.func _process(delta):
 func _physics_process(delta):
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if dead:
 		var musicNode=$"Audio/Death"
 		musicNode.play()

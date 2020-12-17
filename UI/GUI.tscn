@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/inventory.png" type="Texture" id=2]
-[ext_resource path="res://GUI.gd" type="Script" id=3]
+[ext_resource path="res://UI/GUI.gd" type="Script" id=3]
 [ext_resource path="res://GameMenu.gd" type="Script" id=4]
 [ext_resource path="res://Font/pixellegacy.tres" type="DynamicFont" id=5]
 [ext_resource path="res://UI/SavegameMenu.tscn" type="PackedScene" id=6]
@@ -13,25 +13,33 @@
 [ext_resource path="res://UI/pressedoption.png" type="Texture" id=11]
 
 [node name="GUI" type="CanvasLayer"]
-script = ExtResource( 3 )
+pause_mode = 2
 
-[node name="GameMenu" type="Control" parent="."]
+[node name="GUI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameMenu" type="Control" parent="GUI"]
 pause_mode = 2
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -79.6949
-margin_top = -49.8223
-margin_right = 88.305
-margin_bottom = 45.178
+margin_left = 20.3051
+margin_top = -2.3223
+margin_right = 188.305
+margin_bottom = 92.678
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NinePatchRect" type="NinePatchRect" parent="GameMenu"]
+[node name="NinePatchRect" type="NinePatchRect" parent="GUI/GameMenu"]
 margin_left = -39.1578
 margin_top = -19.4413
 margin_right = 200.842
@@ -41,7 +49,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/GameMenu"]
 margin_left = 8.6115
 margin_top = 19.5784
 margin_right = 141.611
@@ -50,17 +58,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="GameMenu/VBoxContainer"]
+[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer"]
 visible = false
 margin_right = 132.0
 margin_bottom = 12.0
 custom_fonts/font = ExtResource( 1 )
 text = "Game Menu"
 
-[node name="MarginContainer" type="MarginContainer" parent="GameMenu/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="GUI/GameMenu/VBoxContainer"]
 margin_right = 132.0
 
-[node name="Resume" type="TextureButton" parent="GameMenu/VBoxContainer"]
+[node name="Resume" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_top = 4.0
 margin_right = 55.0
 margin_bottom = 12.0
@@ -69,7 +77,7 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 10 )
 
-[node name="Label" type="Label" parent="GameMenu/VBoxContainer/Resume"]
+[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Resume"]
 margin_left = -5.3745
 margin_top = -1.01863
 margin_right = 61.6255
@@ -82,7 +90,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Save game" type="TextureButton" parent="GameMenu/VBoxContainer"]
+[node name="Save game" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_top = 16.0
 margin_right = 55.0
 margin_bottom = 24.0
@@ -91,7 +99,7 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 10 )
 
-[node name="Label" type="Label" parent="GameMenu/VBoxContainer/Save game"]
+[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Save game"]
 margin_left = -5.3745
 margin_top = -1.01863
 margin_right = 61.6255
@@ -104,7 +112,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Load game" type="TextureButton" parent="GameMenu/VBoxContainer"]
+[node name="Load game" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_top = 28.0
 margin_right = 55.0
 margin_bottom = 36.0
@@ -113,7 +121,7 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 10 )
 
-[node name="Label" type="Label" parent="GameMenu/VBoxContainer/Load game"]
+[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Load game"]
 margin_left = -5.3745
 margin_top = -1.01863
 margin_right = 61.6255
@@ -126,7 +134,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Options" type="TextureButton" parent="GameMenu/VBoxContainer"]
+[node name="Options" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_top = 40.0
 margin_right = 55.0
 margin_bottom = 48.0
@@ -135,7 +143,7 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 10 )
 
-[node name="Label" type="Label" parent="GameMenu/VBoxContainer/Options"]
+[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Options"]
 margin_left = -5.3745
 margin_top = -1.01863
 margin_right = 61.6255
@@ -148,7 +156,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit to main menu" type="TextureButton" parent="GameMenu/VBoxContainer"]
+[node name="Quit to main menu" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_top = 52.0
 margin_right = 55.0
 margin_bottom = 60.0
@@ -157,7 +165,7 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 10 )
 
-[node name="Label" type="Label" parent="GameMenu/VBoxContainer/Quit to main menu"]
+[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Quit to main menu"]
 margin_left = -5.58472
 margin_top = -1.01863
 margin_right = 61.4153
@@ -170,7 +178,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="TextureButton" parent="GameMenu/VBoxContainer"]
+[node name="Exit" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_top = 64.0
 margin_right = 55.0
 margin_bottom = 72.0
@@ -179,7 +187,7 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 10 )
 
-[node name="Label" type="Label" parent="GameMenu/VBoxContainer/Exit"]
+[node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Exit"]
 margin_left = -5.3745
 margin_top = -1.01863
 margin_right = 61.6255
@@ -192,21 +200,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LoadgameMenu" parent="." instance=ExtResource( 7 )]
+[node name="LoadgameMenu" parent="GUI" instance=ExtResource( 7 )]
 visible = false
+margin_left = 20.3051
+margin_top = -2.3223
+margin_right = 188.305
+margin_bottom = 92.678
 
-[node name="SavegameMenu" parent="." instance=ExtResource( 6 )]
+[node name="SavegameMenu" parent="GUI" instance=ExtResource( 6 )]
 visible = false
 anchor_left = 0.733
 anchor_top = 0.543
 anchor_right = 0.733
 anchor_bottom = 0.543
-margin_left = -135.025
-margin_top = -54.462
-margin_right = 32.9749
-margin_bottom = 40.5383
+margin_left = 11.575
+margin_top = -2.877
+margin_right = 179.575
+margin_bottom = 92.1233
 
-[node name="OptionMenu" type="Control" parent="."]
+[node name="OptionMenu" type="Control" parent="GUI"]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -214,7 +226,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NinePatchRect" type="NinePatchRect" parent="OptionMenu"]
+[node name="NinePatchRect" type="NinePatchRect" parent="GUI/OptionMenu"]
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 169.0
@@ -223,7 +235,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OptionMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/OptionMenu"]
 margin_top = 5.0
 margin_right = 142.0
 margin_bottom = 94.0
@@ -231,12 +243,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CharacterUI" parent="." instance=ExtResource( 8 )]
-[connection signal="pressed" from="GameMenu/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
-[connection signal="pressed" from="GameMenu/VBoxContainer/Resume" to="GameMenu" method="_on_Resume_pressed"]
-[connection signal="pressed" from="GameMenu/VBoxContainer/Save game" to="." method="_on_Save_game_pressed"]
-[connection signal="pressed" from="GameMenu/VBoxContainer/Save game" to="GameMenu" method="_on_Save_game_pressed"]
-[connection signal="pressed" from="GameMenu/VBoxContainer/Load game" to="GameMenu" method="_on_Load_game_pressed"]
-[connection signal="pressed" from="GameMenu/VBoxContainer/Options" to="GameMenu" method="_on_Options_pressed"]
-[connection signal="pressed" from="GameMenu/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="GameMenu/VBoxContainer/Exit" to="GameMenu" method="_on_Exit_pressed"]
+[node name="CharacterUI" parent="GUI" instance=ExtResource( 8 )]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Resume" to="GUI" method="_on_Resume_pressed"]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Save game" to="GUI/GameMenu" method="_on_Save_game_pressed"]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Load game" to="GUI/GameMenu" method="_on_Load_game_pressed"]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Options" to="GUI/GameMenu" method="_on_Options_pressed"]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Exit" to="GUI/GameMenu" method="_on_Exit_pressed"]
