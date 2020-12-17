@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=89 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/main action.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://1.ogg" type="AudioStream" id=5]
 [ext_resource path="res://walking-step.wav" type="AudioStream" id=6]
 [ext_resource path="res://Player/combat/bullet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Hurtbox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://World/light effect.png" type="Texture" id=34]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -159,9 +160,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "hurt_left"
-length = 0.4
+length = 0.6
 loop = true
-step = 0.2
+step = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
@@ -169,17 +170,30 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 36, 37 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hurt_anmation_finished"
+} ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "hurt_right"
-length = 0.4
-loop = true
-step = 0.2
+length = 0.6
+step = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
@@ -187,10 +201,24 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 30, 29 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hurt_anmation_finished"
+} ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -417,7 +445,39 @@ blend_point_1/pos = Vector2( 0, 1 )
 blend_point_2/node = SubResource( 24 )
 blend_point_2/pos = Vector2( 0, -1 )
 
+[sub_resource type="AnimationNodeAnimation" id=71]
+animation = "hurt_left"
+
+[sub_resource type="AnimationNodeAnimation" id=72]
+animation = "hurt_left"
+
+[sub_resource type="AnimationNodeAnimation" id=73]
+animation = "hurt_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=74]
+blend_point_0/node = SubResource( 71 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 72 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 73 )
+blend_point_2/pos = Vector2( 1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=75]
+animation = "hurt_right"
+
+[sub_resource type="AnimationNodeAnimation" id=76]
+animation = "hurt_right"
+
+[sub_resource type="AnimationNodeAnimation" id=77]
+animation = "hurt_right"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id=26]
+blend_point_0/node = SubResource( 75 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 76 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 77 )
+blend_point_2/pos = Vector2( 0, -1 )
 
 [sub_resource type="AnimationNodeAnimation" id=27]
 animation = "kick_left"
@@ -558,6 +618,10 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=66]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+
 [sub_resource type="AnimationNodeStateMachine" id=67]
 states/AttackLeft/node = SubResource( 17 )
 states/AttackLeft/position = Vector2( 5.436, -249.878 )
@@ -565,12 +629,14 @@ states/AttackRight/node = SubResource( 21 )
 states/AttackRight/position = Vector2( -67.343, 111.62 )
 states/DieRight/node = SubResource( 25 )
 states/DieRight/position = Vector2( 513.657, 40.62 )
+states/HurtLeft/node = SubResource( 74 )
+states/HurtLeft/position = Vector2( 238.436, -248.284 )
 states/HurtRight/node = SubResource( 26 )
 states/HurtRight/position = Vector2( 159.657, 334.62 )
 states/KickLeft/node = SubResource( 30 )
 states/KickLeft/position = Vector2( -125.564, -133.556 )
 states/KickRight/node = SubResource( 34 )
-states/KickRight/position = Vector2( -67.343, 276.444 )
+states/KickRight/position = Vector2( -90.564, 288.444 )
 states/StandLeft/node = SubResource( 38 )
 states/StandLeft/position = Vector2( 205.916, -79.04 )
 states/StandRight/node = SubResource( 42 )
@@ -579,15 +645,18 @@ states/WalkLeft/node = SubResource( 46 )
 states/WalkLeft/position = Vector2( 338.436, -179.878 )
 states/WalkRight/node = SubResource( 49 )
 states/WalkRight/position = Vector2( 428.916, 111.62 )
-transitions = [ "StandRight", "WalkRight", SubResource( 50 ), "WalkRight", "StandRight", SubResource( 51 ), "AttackRight", "StandRight", SubResource( 52 ), "StandRight", "AttackRight", SubResource( 53 ), "StandRight", "DieRight", SubResource( 54 ), "StandRight", "HurtRight", SubResource( 55 ), "HurtRight", "StandRight", SubResource( 56 ), "StandLeft", "AttackLeft", SubResource( 57 ), "AttackLeft", "StandLeft", SubResource( 58 ), "StandLeft", "WalkLeft", SubResource( 59 ), "WalkLeft", "StandLeft", SubResource( 60 ), "StandLeft", "StandRight", SubResource( 61 ), "StandRight", "StandLeft", SubResource( 62 ), "KickLeft", "StandLeft", SubResource( 63 ), "StandLeft", "KickLeft", SubResource( 64 ), "KickRight", "StandRight", SubResource( 65 ), "StandRight", "KickRight", SubResource( 66 ) ]
+transitions = [ "StandRight", "WalkRight", SubResource( 50 ), "WalkRight", "StandRight", SubResource( 51 ), "AttackRight", "StandRight", SubResource( 52 ), "StandRight", "AttackRight", SubResource( 53 ), "StandRight", "DieRight", SubResource( 54 ), "StandRight", "HurtRight", SubResource( 55 ), "HurtRight", "StandRight", SubResource( 56 ), "StandLeft", "AttackLeft", SubResource( 57 ), "AttackLeft", "StandLeft", SubResource( 58 ), "StandLeft", "WalkLeft", SubResource( 59 ), "WalkLeft", "StandLeft", SubResource( 60 ), "StandLeft", "StandRight", SubResource( 61 ), "StandRight", "StandLeft", SubResource( 62 ), "KickLeft", "StandLeft", SubResource( 63 ), "StandLeft", "KickLeft", SubResource( 64 ), "KickRight", "StandRight", SubResource( 65 ), "StandRight", "KickRight", SubResource( 66 ), "HurtLeft", "StandLeft", SubResource( 78 ), "StandLeft", "HurtLeft", SubResource( 79 ) ]
 start_node = "StandLeft"
-graph_offset = Vector2( -181.619, -185.506 )
+graph_offset = Vector2( -461.564, -292.284 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=68]
 
 [sub_resource type="CapsuleShape2D" id=69]
 radius = 9.37236
 height = 2.40826
+
+[sub_resource type="CapsuleShape2D" id=70]
+radius = 10.3803
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 4
@@ -599,7 +668,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 56
+frame = 14
 __meta__ = {
 "_edit_lock_": true
 }
@@ -638,12 +707,14 @@ anims/walk_right = SubResource( 13 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 67 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 process_mode = 0
 parameters/playback = SubResource( 68 )
 parameters/AttackLeft/blend_position = Vector2( 0, 0 )
 parameters/AttackRight/blend_position = Vector2( 0, 0 )
 parameters/DieRight/blend_position = Vector2( 0, 0 )
-parameters/HurtRight/blend_position = Vector2( 0, 0 )
+parameters/HurtLeft/blend_position = Vector2( 0, 0 )
+parameters/HurtRight/blend_position = Vector2( 0, 0.0289018 )
 parameters/KickLeft/blend_position = Vector2( 0, 0 )
 parameters/KickRight/blend_position = Vector2( 0, 0 )
 parameters/StandLeft/blend_position = Vector2( 0, 0 )
@@ -695,5 +766,14 @@ position = Vector2( -13, 0 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/Hitbox"]
 shape = SubResource( 69 )
 disabled = true
+
+[node name="Hurtbox" parent="." instance=ExtResource( 8 )]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( -3.00339, -11.3461 )
+shape = SubResource( 70 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
