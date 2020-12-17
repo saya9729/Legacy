@@ -39,7 +39,8 @@ enum{
 	MOVE,
 	ATTACK,
 	KICK,
-	SHOOT
+	SHOOT,
+	HURT
 }
 
 var state = MOVE
@@ -71,6 +72,8 @@ func _physics_process(delta):
 				SkillLoop()
 			KICK:
 				kick_state()
+			HURT:
+				hurt_state()
 
 func SkillLoop():
 	if Input.is_action_pressed("Shoot") and can_fire == true:
@@ -103,7 +106,7 @@ func move_state(delta,haste:bool):
 			animationTree.set("parameters/StandRight/blend_position", input_vector)
 			animationTree.set("parameters/WalkRight/blend_position", input_vector)
 			animationTree.set("parameters/AttackRight/blend_position", input_vector)
-			animationTree.set("parameters/KickRight/blend_position", input_vector)			
+			animationTree.set("parameters/KickRight/blend_position", input_vector)		
 			animationState.travel("WalkRight")
 		else: 
 			animationTree.set("parameters/StandLeft/blend_position", input_vector)
@@ -125,6 +128,9 @@ func move_state(delta,haste:bool):
 		else:
 			velocity = velocity.move_toward(input_vector * movement_speed_run*angle_ratio, ACCELERATION * delta)
 			reduce_stamina(stamina_cost)
+		if !haste:
+			timer2.start()
+		else: timer2.stop()
 		
 	else:
 		if isRight:
@@ -173,17 +179,9 @@ func _ready():
 	animationTree.active = true
 func _on_Timer_timeout():
 	timer2.set_wait_time(0.5)
-	timer2.start()
-func _heal():
-	if !Input.is_action_pressed("ui_sprint"):
-		while(stamina<=stamina_limit and stamina1==stamina):
-			stamina+=10
-	while(hp%20!=0 and hp1==hp and hp<=hp_limit):
-		hp+=1
 func _on_Timer2_timeout():
-	hp1=hp
-	stamina1=stamina
-	_heal()
+
+	auto_regen_stamina()
 	
 func save(save_game: Resource):
 	save_game.data[Save_key] = {
@@ -213,7 +211,7 @@ func reduce_health(lose:float):
 
 func add_stamina(gain:float):
 	stamina+=gain
-	if stamina >max_stamina:
+	if stamina >=max_stamina:
 		stamina=max_stamina
 		tired=false
 	
@@ -229,5 +227,9 @@ func auto_regen_health():
 		
 func auto_regen_stamina():
 	add_stamina(stamina_regen_rate)
-	if stamina==max_stamina and tired:
-		tired=false
+
+func hurt_state():
+	hp=hp-10
+
+func _on_Hurtbox_area_entered(area):
+	hurt_state()
