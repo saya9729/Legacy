@@ -70,7 +70,7 @@ func _physics_process(delta):
 			ATTACK:
 				attack_state()
 			SHOOT:
-				SkillLoop()
+				pass
 			KICK:
 				kick_state()
 			HURT:
