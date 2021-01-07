@@ -100,9 +100,9 @@ func move_state(delta,haste:bool):
 	
 	if input_vector != Vector2.ZERO:
 		if Input.is_action_pressed("ui_left"):
-				isRight= false
+				isRight = false
 		elif Input.is_action_pressed("ui_right"):
-				isRight= true	
+				isRight = true	
 		if isRight:
 			animationTree.set("parameters/StandRight/blend_position", input_vector)
 			animationTree.set("parameters/WalkRight/blend_position", input_vector)

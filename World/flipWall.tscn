@@ -3,6 +3,7 @@
 [ext_resource path="res://tuongflip.png" type="Texture" id=1]
 
 [node name="FlipWall" type="StaticBody2D"]
+collision_mask = 18
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
