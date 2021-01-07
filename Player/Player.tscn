@@ -704,7 +704,7 @@ radius = 9.37236
 height = 2.40826
 
 [sub_resource type="CapsuleShape2D" id=79]
-radius = 11.0
+radius = 8.0
 height = 14.5472
 
 [node name="Player" type="KinematicBody2D"]
@@ -716,7 +716,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 56
+frame = 84
 __meta__ = {
 "_edit_lock_": true
 }
@@ -824,6 +824,7 @@ position = Vector2( 0, -12 )
 collision_layer = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 0, -1 )
 shape = SubResource( 79 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
