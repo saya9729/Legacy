@@ -148,8 +148,8 @@ func move_state(delta,haste:bool):
 	if Input.is_action_just_pressed("kick"):
 		state = KICK	
 	
-	if Input.is_action_just_pressed("Shoot"):
-		state = SHOOT
+#	if Input.is_action_just_pressed("Shoot"):
+#		state = SHOOT
 
 # warning-ignore:unused_argument
 func attack_state():

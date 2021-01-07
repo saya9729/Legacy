@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/womendie.ogg-6b2892d2c4ae626ebcf21893e6a2d7c6.oggstr"
+
+[deps]
+
+source_file="res://Music&Sound/womendie.ogg"
+dest_files=[ "res://.import/womendie.ogg-6b2892d2c4ae626ebcf21893e6a2d7c6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

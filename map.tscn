@@ -9,7 +9,6 @@
 [ext_resource path="res://Mob/Mob.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 317.231, 139.64 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -88,47 +87,64 @@ __meta__ = {
 [node name="Player" parent="YSort" groups=[
 "save",
 ] instance=ExtResource( 3 )]
-position = Vector2( -213.977, -36.0766 )
+position = Vector2( -103, 75 )
 
 [node name="Mobs" type="YSort" parent="YSort"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Mob2" parent="YSort/Mobs" instance=ExtResource( 7 )]
-position = Vector2( -198.901, 1.06252 )
+position = Vector2( -55, 46 )
 
 [node name="Mob3" parent="YSort/Mobs" instance=ExtResource( 7 )]
-position = Vector2( -234.566, -64.4554 )
+position = Vector2( -109.507, 26 )
 
 [node name="Mob4" parent="YSort/Mobs" instance=ExtResource( 7 )]
-position = Vector2( -272.059, -32.5734 )
+position = Vector2( -147, 57.882 )
 
 [node name="Mob" parent="YSort/Mobs" instance=ExtResource( 7 )]
-position = Vector2( -178.27, -47.5107 )
+position = Vector2( -51, 85 )
 
 [node name="Walls" type="YSort" parent="YSort"]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="StaticBody2D" parent="YSort/Walls" instance=ExtResource( 4 )]
-position = Vector2( -90.231, 65.36 )
-collision_layer = 5
-collision_mask = 5
+[node name="sampleWall" parent="YSort/Walls" instance=ExtResource( 4 )]
+position = Vector2( -479.231, -2.64 )
 
-[node name="StaticBody2D2" parent="YSort/Walls" instance=ExtResource( 4 )]
-position = Vector2( -161.231, 33.36 )
-collision_layer = 5
-collision_mask = 5
+[node name="FlipWall" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -478.231, -6.64 )
 
-[node name="StaticBody2D3" parent="YSort/Walls" instance=ExtResource( 4 )]
-position = Vector2( -144.231, 41.36 )
-collision_layer = 5
-collision_mask = 5
+[node name="FlipWall2" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -430.231, -30.64 )
 
-[node name="StaticBody2D4" parent="YSort/Walls" instance=ExtResource( 4 )]
-position = Vector2( -141.231, 70.36 )
-collision_layer = 5
-collision_mask = 5
+[node name="FlipWall5" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -383.231, -54.64 )
 
-[node name="flipWall" parent="YSort/Walls" instance=ExtResource( 6 )]
-position = Vector2( -27.05, 135.732 )
-collision_layer = 5
-collision_mask = 5
+[node name="FlipWall6" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -366.231, -62.64 )
+
+[node name="FlipWall7" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -349.231, -70.64 )
+
+[node name="FlipWall8" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -333.231, -78.64 )
+
+[node name="FlipWall9" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -320.231, -85.64 )
+
+[node name="FlipWall10" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -272.231, -110.64 )
+
+[node name="FlipWall11" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -257.231, -117.64 )
+
+[node name="FlipWall3" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -461.231, -15.64 )
+
+[node name="FlipWall4" parent="YSort/Walls" instance=ExtResource( 6 )]
+position = Vector2( -444.231, -23.64 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]

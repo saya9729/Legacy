@@ -5,7 +5,8 @@
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -4.51305, 0.595047, 12.7448, 8.87321, 17.0943, 8.17166, 17.0943, 3.82213, 3.20387, -2.0708 )
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="sampleWall" type="StaticBody2D"]
+collision_layer = 5
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 5, -13 )

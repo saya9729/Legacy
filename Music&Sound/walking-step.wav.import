@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/walking-step.wav-bfbf14d0d3f9e6a0fd7bc66347a0d126.sample"
+path="res://.import/walking-step.wav-08bfaa9ab8e259dcffe211dd1c05cd99.sample"
 
 [deps]
 
-source_file="res://walking-step.wav"
-dest_files=[ "res://.import/walking-step.wav-bfbf14d0d3f9e6a0fd7bc66347a0d126.sample" ]
+source_file="res://Music&Sound/walking-step.wav"
+dest_files=[ "res://.import/walking-step.wav-08bfaa9ab8e259dcffe211dd1c05cd99.sample" ]
 
 [params]
 
