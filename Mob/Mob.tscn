@@ -44,6 +44,7 @@ anims/Stand = SubResource( 1 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -3 )
+collision_layer = 8
 
 [node name="HurtboxShape" parent="Hurtbox" index="0"]
 shape = SubResource( 2 )
@@ -54,7 +55,6 @@ shape = SubResource( 3 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, -3 )
-collision_layer = 4
 collision_mask = 4
 
 [node name="HitboxShape" parent="Hitbox" index="0"]

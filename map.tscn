@@ -104,7 +104,7 @@ position = Vector2( -109.507, 26 )
 position = Vector2( -147, 57.882 )
 
 [node name="Mob" parent="YSort/Mobs" instance=ExtResource( 7 )]
-position = Vector2( -51, 85 )
+position = Vector2( -54, 50 )
 
 [node name="Walls" type="YSort" parent="YSort"]
 __meta__ = {

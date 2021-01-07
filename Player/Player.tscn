@@ -708,8 +708,7 @@ radius = 11.0
 height = 14.5472
 
 [node name="Player" type="KinematicBody2D"]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="PlayerSprite" type="Sprite" parent="."]
@@ -814,6 +813,7 @@ __meta__ = {
 
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
 position = Vector2( -13, 0 )
+collision_mask = 2147483656
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/Hitbox"]
 shape = SubResource( 78 )
@@ -822,7 +822,6 @@ disabled = true
 [node name="Hurtbox" parent="." instance=ExtResource( 8 )]
 position = Vector2( 0, -12 )
 collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 79 )
