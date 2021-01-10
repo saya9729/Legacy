@@ -146,7 +146,7 @@ func move_state(delta,haste:bool):
 		state = ATTACK
 		
 	if Input.is_action_just_pressed("kick"):
-		state = KICK	
+		state = KICK
 	
 #	if Input.is_action_just_pressed("Shoot"):
 #		state = SHOOT

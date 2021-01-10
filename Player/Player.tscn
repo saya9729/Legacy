@@ -4,7 +4,6 @@
 [ext_resource path="res://Player/main action.png" type="Texture" id=2]
 [ext_resource path="res://Overlay/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Music&Sound/womendie.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Music&Sound/1.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Music&Sound/walking-step.wav" type="AudioStream" id=6]
 [ext_resource path="res://Player/combat/bullet.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Overlay/Hurtbox.tscn" type="PackedScene" id=8]
@@ -695,15 +694,17 @@ states/WalkRight/node = SubResource( 56 )
 states/WalkRight/position = Vector2( 428.916, 111.62 )
 transitions = [ "StandRight", "WalkRight", SubResource( 57 ), "WalkRight", "StandRight", SubResource( 58 ), "AttackRight", "StandRight", SubResource( 59 ), "StandRight", "AttackRight", SubResource( 60 ), "StandRight", "DieRight", SubResource( 61 ), "StandRight", "HurtRight", SubResource( 62 ), "HurtRight", "StandRight", SubResource( 63 ), "StandLeft", "AttackLeft", SubResource( 64 ), "AttackLeft", "StandLeft", SubResource( 65 ), "StandLeft", "WalkLeft", SubResource( 66 ), "WalkLeft", "StandLeft", SubResource( 67 ), "StandLeft", "StandRight", SubResource( 68 ), "StandRight", "StandLeft", SubResource( 69 ), "KickLeft", "StandLeft", SubResource( 70 ), "StandLeft", "KickLeft", SubResource( 71 ), "KickRight", "StandRight", SubResource( 72 ), "StandRight", "KickRight", SubResource( 73 ), "HurtLeft", "StandLeft", SubResource( 74 ), "StandLeft", "HurtLeft", SubResource( 75 ) ]
 start_node = "StandLeft"
-graph_offset = Vector2( -461.564, 33.7893 )
+graph_offset = Vector2( -461.564, -80.3363 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=77]
 
-[sub_resource type="CapsuleShape2D" id=78]
-radius = 9.37236
-height = 2.40826
+[sub_resource type="AudioStreamSample" id=78]
 
 [sub_resource type="CapsuleShape2D" id=79]
+radius = 7.0
+height = 4.0
+
+[sub_resource type="CapsuleShape2D" id=80]
 radius = 8.0
 height = 14.5472
 
@@ -716,7 +717,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 84
+frame = 18
 __meta__ = {
 "_edit_lock_": true
 }
@@ -730,7 +731,6 @@ __meta__ = {
 
 [node name="LightPivot" type="Position2D" parent="."]
 position = Vector2( 0, -20 )
-rotation = 3.14159
 
 [node name="Light2D" type="Light2D" parent="LightPivot"]
 position = Vector2( -8, 0 )
@@ -777,7 +777,7 @@ parameters/WalkRight/blend_position = Vector2( 0, 0 )
 [node name="Audio" type="Node" parent="."]
 
 [node name="Background music" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 5 )
+stream = SubResource( 78 )
 
 [node name="Death" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 4 )
@@ -802,10 +802,10 @@ position = Vector2( 0, -12 )
 current = true
 
 [node name="bullet" parent="." instance=ExtResource( 7 )]
+visible = false
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -12 )
-rotation = 3.14159
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -816,7 +816,8 @@ position = Vector2( -13, 0 )
 collision_mask = 2147483656
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/Hitbox"]
-shape = SubResource( 78 )
+rotation = 1.5708
+shape = SubResource( 79 )
 disabled = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 8 )]
@@ -825,7 +826,7 @@ collision_layer = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( 0, -1 )
-shape = SubResource( 79 )
+shape = SubResource( 80 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
