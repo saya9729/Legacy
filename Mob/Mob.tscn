@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Mob/Mob.gd" type="Script" id=1]
 [ext_resource path="res://Overlay/Hurtbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Mob/Bat.png" type="Texture" id=3]
 [ext_resource path="res://Overlay/Hitbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Mob/Stats.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.45
@@ -63,7 +64,12 @@ collision_mask = 4
 
 [node name="HitboxShape" parent="Hitbox" index="0"]
 shape = SubResource( 4 )
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource( 5 )
+max_health = 3
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
 [editable path="Hurtbox"]
 

@@ -711,26 +711,27 @@ height = 14.5472
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 18
-__meta__ = {
-"_edit_lock_": true
-}
+frame = 56
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="LightPivot" type="Position2D" parent="."]
 position = Vector2( 0, -20 )
+rotation = 3.14159
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D" type="Light2D" parent="LightPivot"]
 position = Vector2( -8, 0 )
@@ -806,13 +807,14 @@ visible = false
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -12 )
+rotation = 3.14159
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
-position = Vector2( -13, 0 )
+position = Vector2( -19, 0 )
 collision_mask = 2147483656
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/Hitbox"]
@@ -825,7 +827,6 @@ position = Vector2( 0, -12 )
 collision_layer = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( 0, -1 )
 shape = SubResource( 80 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
