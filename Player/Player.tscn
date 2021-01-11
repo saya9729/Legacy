@@ -703,14 +703,14 @@ graph_offset = Vector2( -461.564, -80.3363 )
 
 [sub_resource type="AudioStreamSample" id=78]
 
-[sub_resource type="CircleShape2D" id=81]
+[sub_resource type="CircleShape2D" id=79]
 radius = 13.0384
 
-[sub_resource type="CapsuleShape2D" id=82]
+[sub_resource type="CapsuleShape2D" id=80]
 radius = 8.0
 height = 14.0
 
-[sub_resource type="CapsuleShape2D" id=80]
+[sub_resource type="CapsuleShape2D" id=81]
 radius = 8.0
 height = 14.5472
 
@@ -726,7 +726,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 98
+frame = 70
 __meta__ = {
 "_edit_lock_": true
 }
@@ -775,7 +775,7 @@ parameters/AttackLeft/blend_position = Vector2( 0, 0 )
 parameters/AttackRight/blend_position = Vector2( 0, 0 )
 parameters/DieRight/blend_position = Vector2( 0, 0 )
 parameters/HurtLeft/blend_position = Vector2( 0, 0 )
-parameters/HurtRight/blend_position = Vector2( 0, 0.0289018 )
+parameters/HurtRight/blend_position = Vector2( 0, 0 )
 parameters/KickLeft/blend_position = Vector2( 0, 0 )
 parameters/KickRight/blend_position = Vector2( 0, 0 )
 parameters/StandLeft/blend_position = Vector2( 0, 0 )
@@ -832,18 +832,17 @@ damage = 3
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/LanternHitbox"]
 rotation = 1.5708
-shape = SubResource( 81 )
+shape = SubResource( 79 )
 disabled = true
 
 [node name="KickHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
-position = Vector2( -12, -3 )
+position = Vector2( -14, -3 )
 collision_mask = 2147483656
 script = ExtResource( 9 )
 
 [node name="HitboxShape" parent="HitboxPivot/KickHitbox" index="0"]
-position = Vector2( -2, 0 )
 rotation = 1.5708
-shape = SubResource( 82 )
+shape = SubResource( 80 )
 disabled = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 8 )]
@@ -851,7 +850,7 @@ position = Vector2( 0, -12 )
 collision_layer = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource( 80 )
+shape = SubResource( 81 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

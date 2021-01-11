@@ -67,7 +67,7 @@ shape = SubResource( 4 )
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource( 5 )
-max_health = 4
+max_health = 3
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
