@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Hitbox",
+"language": "GDScript",
+"path": "res://Overlay/Hitbox.gd"
+}, {
 "base": "Resource",
 "class": "SaveGame",
 "language": "GDScript",
 "path": "res://save/SaveGame.gd"
 } ]
 _global_script_class_icons={
+"Hitbox": "",
 "SaveGame": ""
 }
 
