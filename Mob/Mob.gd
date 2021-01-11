@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-
 onready var fly = $Fly
+onready var stats = $Stats
 
 const KNOCKBACK_SPEED = 170
 const KNOCKBACK_FRICTION = 350
@@ -15,6 +15,10 @@ func _physics_process(delta):
 	knockback_velocity = move_and_slide(knockback_velocity)
 
 func _on_Hurtbox_area_entered(area):
-	knockback_direction = get_node("Hurtbox").global_position - area.global_position
+	stats.health -= 1
+	knockback_direction = $Hurtbox.global_position - area.global_position
 	knockback_direction = knockback_direction.normalized()
 	knockback_velocity = knockback_direction * KNOCKBACK_SPEED
+
+func _on_Stats_no_health():
+	queue_free()
