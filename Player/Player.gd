@@ -5,24 +5,28 @@ var anima_direction="right"
 var anima_mode="stand"
 var animation
 var isRight = true
-onready var timer=get_node("Timer")
-onready var timer2=get_node("Timer2")
+
 
 onready var Save_key : String = "Player" + name
-var hp = 61
-var hp1
+var hp = 61.0
 var stamina1
-var hp_limit=100
-var stamina_limit=100
+var hp_limit=100.0
+var stamina_limit=100.0
 
-var health=61
-var max_health=100
-var health_regen_rate=1
-var movement_speed_walk=50
-var movement_speed_run=85
-var stamina=100
-var stamina_regen_rate=10
-var max_stamina=100
+var last_hurt_time=OS.get_ticks_msec()
+var last_run_time=OS.get_ticks_msec()
+var health_pause=3000#ms
+var stamina_pause=3000#ms
+
+
+var health=61.0
+var max_health=100.0
+var health_regen_rate=1.0
+var movement_speed_walk=50.0
+var movement_speed_run=85.0
+var stamina=100.0
+var stamina_regen_rate=1.0
+var max_stamina=100.0
 var stamina_cost=0.75
 var dead=false
 var tired=false
@@ -75,6 +79,8 @@ func _physics_process(delta):
 				kick_state()
 			HURT:
 				hurt_state()
+		auto_regen_health()
+		auto_regen_stamina()
 
 func shoot_state():
 	if Input.is_action_pressed("Shoot") and can_fire == true:
@@ -129,9 +135,7 @@ func move_state(delta,haste:bool):
 		else:
 			velocity = velocity.move_toward(input_vector * movement_speed_run*angle_ratio, ACCELERATION * delta)
 			reduce_stamina(stamina_cost)
-		if !haste:
-			timer2.start()
-		else: timer2.stop()
+		
 		
 	else:
 		if isRight:
@@ -175,14 +179,7 @@ func kick_anmation_finished():
 
 
 func _ready():
-	timer.set_wait_time(1)
-	timer.start()
 	animationTree.active = true
-func _on_Timer_timeout():
-	timer2.set_wait_time(0.5)
-func _on_Timer2_timeout():
-
-	auto_regen_stamina()
 	
 func save(save_game: Resource):
 	save_game.data[Save_key] = {
@@ -206,8 +203,9 @@ func add_health(gain:float):
 	
 func reduce_health(lose:float):
 	health-=lose
+	last_hurt_time=OS.get_ticks_msec()
 	if health<0:
-		health=0
+		health=0.0
 		dead=true
 
 func add_stamina(gain:float):
@@ -218,19 +216,22 @@ func add_stamina(gain:float):
 	
 func reduce_stamina(lose:float):
 	stamina-=lose
-	if stamina<0:
-		stamina=0
+	last_run_time=OS.get_ticks_msec()
+	if stamina<=0:
+		stamina=0.0
 		tired=true
 		
 func auto_regen_health():
-	if health % health_section!=0:
-		add_health(health_regen_rate)
+	if OS.get_ticks_msec()-last_hurt_time>=health_pause:
+		if fmod(health , health_section)!=0:
+			add_health(health_regen_rate)
 		
 func auto_regen_stamina():
-	add_stamina(stamina_regen_rate)
+	if OS.get_ticks_msec()-last_run_time>=stamina_pause:
+		add_stamina(stamina_regen_rate)
 
 func hurt_state():
-	hp=hp-10
+	reduce_health(10)
 
 func _on_Hurtbox_area_entered(area):
 	hurt_state()

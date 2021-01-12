@@ -9,7 +9,6 @@
 [ext_resource path="res://UI/skillbar.png" type="Texture" id=7]
 [ext_resource path="res://circle.png" type="Texture" id=8]
 
-
 [node name="CharacterUI" type="Control"]
 pause_mode = 2
 margin_right = 40.0

@@ -10,7 +10,7 @@ extends TextureProgress
 
 
 func _physics_process(delta):
-	value = get_tree().get_root().get_node("Node2D/YSort/Player").get("hp")
+	value = get_tree().get_root().get_node("Node2D/YSort/Player").get("health")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
