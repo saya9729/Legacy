@@ -32,7 +32,7 @@ var dead=false
 var tired=false
 var health_section=20
 var in_combat=false
-var haste=false
+var is_run=false
 
 const ACCELERATION = 500
 const MAX_SPEED = 50
@@ -67,10 +67,10 @@ func _physics_process(delta):
 	else:
 		match state:
 			MOVE:
-				haste=false
+				is_run=false
 				if Input.is_action_pressed("ui_sprint"):
-					haste=true
-				move_state(delta,haste)
+					is_run=true
+				move_state(delta,is_run)
 			ATTACK:
 				attack_state()
 			SHOOT:
@@ -97,7 +97,7 @@ func shoot_state():
 	else:
 		state = MOVE
 
-func move_state(delta,haste:bool):
+func move_state(delta,is_run:bool):
 	var input_vector = Vector2.ZERO
 	input_vector.x = 2*(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
 	input_vector.y = (Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up"))
@@ -130,7 +130,7 @@ func move_state(delta,haste:bool):
 		else:
 			angle_ratio=sqrt(5)/2.0
 			
-		if !haste or stamina==0 or tired:
+		if !is_run or stamina==0 or tired:
 			velocity = velocity.move_toward(input_vector * movement_speed_walk*angle_ratio, ACCELERATION * delta)
 		else:
 			velocity = velocity.move_toward(input_vector * movement_speed_run*angle_ratio, ACCELERATION * delta)
@@ -198,7 +198,7 @@ func load(save_game: Resource):
 
 func add_health(gain:float):
 	health+=gain
-	if health>max_health:
+	if health>=max_health:
 		health=max_health
 	
 func reduce_health(lose:float):
