@@ -127,7 +127,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "die_left"
-length = 1.35
 step = 0.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
@@ -136,15 +135,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 36, 37, 39, 40, 41, 42, 43, 43, 43 ]
+"values": [ 36, 37, 39, 40, 41, 42, 43 ]
 }
 
 [sub_resource type="Animation" id=5]
 resource_name = "die_right"
-length = 1.35
 step = 0.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
@@ -153,10 +151,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 28, 29, 31, 32, 33, 34, 35, 35, 35 ]
+"values": [ 28, 29, 31, 32, 33, 34, 35 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -707,8 +705,8 @@ graph_offset = Vector2( -461.564, -80.3363 )
 radius = 13.0384
 
 [sub_resource type="CapsuleShape2D" id=80]
-radius = 8.0
-height = 14.0
+radius = 6.99999
+height = 7.99998
 
 [sub_resource type="CapsuleShape2D" id=81]
 radius = 8.0
@@ -726,7 +724,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 70
+frame = 80
 __meta__ = {
 "_edit_lock_": true
 }
@@ -810,12 +808,12 @@ __meta__ = {
 [node name="ShootPoint" type="Position2D" parent="ShootPivot"]
 position = Vector2( 16.9706, 0 )
 
+[node name="bullet" parent="." instance=ExtResource( 7 )]
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -12 )
 current = true
-
-[node name="bullet" parent="." instance=ExtResource( 7 )]
-visible = false
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -12 )
@@ -836,7 +834,7 @@ shape = SubResource( 79 )
 disabled = true
 
 [node name="KickHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
-position = Vector2( -14, -3 )
+position = Vector2( -17, -3 )
 collision_mask = 2147483656
 script = ExtResource( 9 )
 
@@ -848,6 +846,7 @@ disabled = true
 [node name="Hurtbox" parent="." instance=ExtResource( 8 )]
 position = Vector2( 0, -12 )
 collision_layer = 4
+script = null
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 81 )

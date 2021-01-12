@@ -20,11 +20,11 @@ func _physics_process(delta):
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	if area.damage == 3:
-		knockback_direction = $Hurtbox.global_position - area.global_position
+		knockback_direction = $Hurtbox.global_position - area.get_parent().global_position
 		knockback_direction = knockback_direction.normalized()
 		knockback_velocity = knockback_direction * KNOCKBACK_SPEED
 	elif area.damage == 1:
-		knockback_direction = $Hurtbox.global_position - area.global_position
+		knockback_direction = $Hurtbox.global_position - area.get_parent().global_position
 		knockback_direction = knockback_direction.normalized()
 		knockback_velocity = knockback_direction * KICK_KNOCKBACK_SPEEED
 
