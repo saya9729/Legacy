@@ -164,7 +164,6 @@ __meta__ = {
 [node name="GameSaver" parent="." instance=ExtResource( 9 )]
 
 [node name="Black" type="ColorRect" parent="."]
-visible = false
 margin_right = 239.0
 margin_bottom = 136.0
 color = Color( 0, 0, 0, 0.247059 )

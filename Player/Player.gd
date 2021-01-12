@@ -183,7 +183,7 @@ func _ready():
 	
 func save(save_game: Resource):
 	save_game.data[Save_key] = {
-		'health': hp,
+		'health': health,
 		'stamina': stamina,
 		'postion':  get_position(),
 }
@@ -192,7 +192,7 @@ func save(save_game: Resource):
 
 func load(save_game: Resource):
 	var data: Dictionary = save_game.data[Save_key]
-	hp = data['health']
+	health = data['health']
 	stamina = data['stamina']
 	position = data['postion']
 
