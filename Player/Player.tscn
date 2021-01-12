@@ -706,7 +706,7 @@ radius = 13.0384
 
 [sub_resource type="CapsuleShape2D" id=80]
 radius = 6.99999
-height = 7.99998
+height = 10.0
 
 [sub_resource type="CapsuleShape2D" id=81]
 radius = 8.0
@@ -835,7 +835,7 @@ shape = SubResource( 79 )
 disabled = true
 
 [node name="KickHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
-position = Vector2( -17, -3 )
+position = Vector2( -15, -3 )
 collision_mask = 2147483656
 script = ExtResource( 9 )
 
