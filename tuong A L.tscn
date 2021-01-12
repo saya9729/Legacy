@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://gachsannha.png" type="Texture" id=1]
+[ext_resource path="res://goc2.png" type="Texture" id=2]
+[ext_resource path="res://tuong C2.png" type="Texture" id=3]
+[ext_resource path="res://tuong B1.png" type="Texture" id=4]
+[ext_resource path="res://tuong A L.png" type="Texture" id=5]
+[ext_resource path="res://goc4.png" type="Texture" id=6]
+[ext_resource path="res://tuong C1.png" type="Texture" id=7]
+[ext_resource path="res://goc3.png" type="Texture" id=8]
+[ext_resource path="res://tuong A R..png" type="Texture" id=9]
+[ext_resource path="res://tuong A L - Copy.png" type="Texture" id=10]
+[ext_resource path="res://tuong B2.png" type="Texture" id=11]
+[ext_resource path="res://goc1.png" type="Texture" id=12]
+
+[node name="tuong A L" type="Sprite"]
+position = Vector2( -435.381, -102.981 )
+texture = ExtResource( 5 )
+offset = Vector2( 0, -3 )
+
+[node name="tuong A R" type="Sprite" parent="."]
+position = Vector2( -74.4189, -7.06937 )
+texture = ExtResource( 9 )
+offset = Vector2( 0, -3 )
+
+[node name="tuong B1" type="Sprite" parent="."]
+position = Vector2( 27.4336, 13.0138 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -3 )
+
+[node name="tuong B2" type="Sprite" parent="."]
+position = Vector2( -103.48, 14.5068 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, -3 )
+
+[node name="tuong C1" type="Sprite" parent="."]
+position = Vector2( 57.5741, 31.4532 )
+texture = ExtResource( 7 )
+offset = Vector2( 0, -3 )
+
+[node name="tuong C2" type="Sprite" parent="."]
+position = Vector2( -135.923, 37.3146 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, -3 )
+
+[node name="goc1" type="Sprite" parent="."]
+position = Vector2( -36.1213, -23.5172 )
+texture = ExtResource( 12 )
+offset = Vector2( 0, -5 )
+
+[node name="goc2" type="Sprite" parent="."]
+position = Vector2( 95.0368, 53.8695 )
+texture = ExtResource( 2 )
+offset = Vector2( -7, -6 )
+
+[node name="goc3" type="Sprite" parent="."]
+position = Vector2( -179.753, 80.0449 )
+texture = ExtResource( 8 )
+offset = Vector2( 6, -6 )
+
+[node name="goc4" type="Sprite" parent="."]
+position = Vector2( -37.8689, 132.824 )
+texture = ExtResource( 6 )
+offset = Vector2( 0, 3 )
+
+[node name="gachsannha" type="Sprite" parent="."]
+position = Vector2( -36.137, -24.2398 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -1 )
+region_rect = Rect2( 20, 40, 18, 64 )
+
+[node name="tuong A L - Copy" type="Sprite" parent="."]
+position = Vector2( 130.381, 76.4808 )
+texture = ExtResource( 10 )
+offset = Vector2( 0, -3 )
