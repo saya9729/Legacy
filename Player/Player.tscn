@@ -724,7 +724,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 80
+frame = 70
 __meta__ = {
 "_edit_lock_": true
 }
@@ -744,6 +744,7 @@ __meta__ = {
 }
 
 [node name="Light2D" type="Light2D" parent="LightPivot"]
+visible = false
 position = Vector2( -8, -1.90735e-05 )
 scale = Vector2( 0.340901, 0.33636 )
 texture = ExtResource( 34 )
