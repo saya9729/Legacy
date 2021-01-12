@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/inventory.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://UI/option.png" type="Texture" id=9]
 [ext_resource path="res://UI/hoveroption.png" type="Texture" id=10]
 [ext_resource path="res://UI/pressedoption.png" type="Texture" id=11]
+[ext_resource path="res://Title_screen/TitleScreen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Title_screen/NewGameScreen.tscn" type="PackedScene" id=13]
 
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
@@ -244,8 +246,14 @@ __meta__ = {
 }
 
 [node name="CharacterUI" parent="GUI" instance=ExtResource( 8 )]
+
+[node name="TitleScreen" parent="GUI" instance=ExtResource( 12 )]
+
+[node name="NewGameScreen" parent="GUI" instance=ExtResource( 13 )]
+visible = false
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Resume" to="GUI" method="_on_Resume_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Save game" to="GUI/GameMenu" method="_on_Save_game_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Load game" to="GUI/GameMenu" method="_on_Load_game_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Options" to="GUI/GameMenu" method="_on_Options_pressed"]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Quit to main menu" to="GUI/GameMenu" method="_on_Quit_to_main_menu_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Exit" to="GUI/GameMenu" method="_on_Exit_pressed"]

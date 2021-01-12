@@ -1,5 +1,7 @@
 extends Control
 
+signal returnTitle
+
 func toggle_visibility():
 	visible = !visible
 	
@@ -26,3 +28,8 @@ func _on_Load_game_pressed():
 	get_node("LoadgameMenu").connect("CloseLoadMenu", self, "CloseLoadMenu")
 func CloseLoadMenu():
 	get_node("LoadgameMenu").queue_free()
+
+
+func _on_Quit_to_main_menu_pressed():
+	visible = false
+	get_parent().get_node("TitleScreen").visible = true
