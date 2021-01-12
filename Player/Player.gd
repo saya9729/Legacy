@@ -76,7 +76,7 @@ func _physics_process(delta):
 			HURT:
 				hurt_state()
 
-func SkillLoop():
+func shoot_state():
 	if Input.is_action_pressed("Shoot") and can_fire == true:
 		can_fire = false
 		shooting = true

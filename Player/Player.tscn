@@ -1,12 +1,14 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/main action.png" type="Texture" id=2]
 [ext_resource path="res://Overlay/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Music&Sound/womendie.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Player/LanternHitbox.gd" type="Script" id=5]
 [ext_resource path="res://Music&Sound/walking-step.wav" type="AudioStream" id=6]
 [ext_resource path="res://Player/combat/bullet.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Overlay/Hurtbox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/KickHitbox.gd" type="Script" id=9]
 [ext_resource path="res://World/light effect.png" type="Texture" id=34]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -42,7 +44,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot/Hitbox/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("HitboxPivot/LanternHitbox/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -97,7 +99,7 @@ tracks/1/keys = {
 "values": [ 180.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot/Hitbox/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("HitboxPivot/LanternHitbox/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -221,8 +223,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-length = 1.4
-loop = true
+length = 1.05
+step = 0.071
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
@@ -230,7 +232,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
+"times": PoolRealArray( 0, 0.071, 0.142, 0.213, 0.284, 0.355, 0.426, 0.568, 0.639, 0.71, 0.781, 0.852, 0.923, 0.994 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111 ]
@@ -242,7 +244,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.4 ),
+"times": PoolRealArray( 0.994 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -256,26 +258,27 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.8 ),
+"times": PoolRealArray( 0.568 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/Hitbox/CollisionShape2D2:disabled")
+tracks/3/path = NodePath("HitboxPivot/KickHitbox/HitboxShape:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.8, 1.4 ),
+"times": PoolRealArray( 0.568, 0.994 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=9]
-length = 1.4
+length = 1.05
+step = 0.071
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
@@ -283,7 +286,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
+"times": PoolRealArray( 0, 0.071, 0.142, 0.213, 0.284, 0.355, 0.426, 0.568, 0.639, 0.71, 0.781, 0.852, 0.923, 0.994 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97 ]
@@ -295,7 +298,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.4 ),
+"times": PoolRealArray( 0.994 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -309,19 +312,19 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.8 ),
+"times": PoolRealArray( 0.568 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 180.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/Hitbox/CollisionShape2D2:disabled")
+tracks/3/path = NodePath("HitboxPivot/KickHitbox/HitboxShape:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.8, 1.4 ),
+"times": PoolRealArray( 0.568, 0.994 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -700,11 +703,14 @@ graph_offset = Vector2( -461.564, -80.3363 )
 
 [sub_resource type="AudioStreamSample" id=78]
 
-[sub_resource type="CapsuleShape2D" id=79]
-radius = 7.0
-height = 4.0
+[sub_resource type="CircleShape2D" id=79]
+radius = 13.0384
 
 [sub_resource type="CapsuleShape2D" id=80]
+radius = 8.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id=81]
 radius = 8.0
 height = 14.5472
 
@@ -720,11 +726,17 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 56
+frame = 70
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LightPivot" type="Position2D" parent="."]
 position = Vector2( 0, -20 )
@@ -734,7 +746,7 @@ __meta__ = {
 }
 
 [node name="Light2D" type="Light2D" parent="LightPivot"]
-position = Vector2( -8, 0 )
+position = Vector2( -8, -1.90735e-05 )
 scale = Vector2( 0.340901, 0.33636 )
 texture = ExtResource( 34 )
 mode = 2
@@ -763,7 +775,7 @@ parameters/AttackLeft/blend_position = Vector2( 0, 0 )
 parameters/AttackRight/blend_position = Vector2( 0, 0 )
 parameters/DieRight/blend_position = Vector2( 0, 0 )
 parameters/HurtLeft/blend_position = Vector2( 0, 0 )
-parameters/HurtRight/blend_position = Vector2( 0, 0.0289018 )
+parameters/HurtRight/blend_position = Vector2( 0, 0 )
 parameters/KickLeft/blend_position = Vector2( 0, 0 )
 parameters/KickRight/blend_position = Vector2( 0, 0 )
 parameters/StandLeft/blend_position = Vector2( 0, 0 )
@@ -807,19 +819,30 @@ visible = false
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -12 )
-rotation = 3.14159
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
-position = Vector2( -19, 0 )
+[node name="LanternHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
+position = Vector2( -11, 1 )
 collision_mask = 2147483656
+script = ExtResource( 5 )
+damage = 3
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/Hitbox"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/LanternHitbox"]
 rotation = 1.5708
 shape = SubResource( 79 )
+disabled = true
+
+[node name="KickHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
+position = Vector2( -14, -3 )
+collision_mask = 2147483656
+script = ExtResource( 9 )
+
+[node name="HitboxShape" parent="HitboxPivot/KickHitbox" index="0"]
+rotation = 1.5708
+shape = SubResource( 80 )
 disabled = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 8 )]
@@ -827,7 +850,9 @@ position = Vector2( 0, -12 )
 collision_layer = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource( 80 )
+shape = SubResource( 81 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+
+[editable path="HitboxPivot/KickHitbox"]
