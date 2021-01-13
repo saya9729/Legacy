@@ -32,8 +32,6 @@ func OpenNewGame():
 
 
 func _on_Continue_pressed():
-	get_node("Black").visible = false
-	get_node("NewGameScreen").queue_free()
 	var pause_state =  false
 	get_tree().paused = pause_state
 	visible = pause_state
