@@ -9,6 +9,7 @@
 [ext_resource path="res://Title_screen/FadeIn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Title_screen/TitleScreen.gd" type="Script" id=8]
 [ext_resource path="res://save/GameSaver.tscn" type="PackedScene" id=9]
+[ext_resource path="res://icon.png" type="Texture" id=10]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -59,7 +60,6 @@ margin_bottom = 8.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 1 )
-texture_disabled = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="Menu/CenterRow/Button/Continue"]
 margin_left = 6.75408
@@ -174,11 +174,7 @@ visible = false
 margin_right = 239.0
 margin_bottom = 136.0
 color = Color( 0, 0, 0, 0.247059 )
-
-[node name="SettingGameScreen" parent="." instance=ExtResource( 10 )]
-visible = false
 [connection signal="pressed" from="Menu/CenterRow/Button/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Button/New Game" to="." method="_on_New_Game_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Button/Load Game" to="." method="_on_Load_Game_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Button/Setting" to="." method="_on_Setting_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Button/Exit" to="." method="_on_Exit_pressed"]
