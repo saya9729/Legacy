@@ -170,4 +170,5 @@ margin_bottom = 136.0
 color = Color( 0, 0, 0, 0.247059 )
 [connection signal="pressed" from="Menu/CenterRow/Button/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Button/New Game" to="." method="_on_New_Game_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Button/Load Game" to="." method="_on_Load_Game_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Button/Exit" to="." method="_on_Exit_pressed"]
