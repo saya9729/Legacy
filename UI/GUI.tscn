@@ -255,6 +255,7 @@ __meta__ = {
 visible = false
 
 [node name="LoadGameScreen" parent="GUI" instance=ExtResource( 14 )]
+visible = false
 script = ExtResource( 15 )
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Resume" to="GUI" method="_on_Resume_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Save game" to="GUI/GameMenu" method="_on_Save_game_pressed"]

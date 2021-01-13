@@ -1,5 +1,5 @@
 # Main Function for Main Character
-extends KinematicBody2D
+extends Creature
 
 var anima_direction="right"
 var anima_mode="stand"
@@ -15,17 +15,17 @@ var stamina_limit=100.0
 
 var last_hurt_time=OS.get_ticks_msec()
 var last_run_time=OS.get_ticks_msec()
-var health_pause=3000#ms
-var stamina_pause=3000#ms
+var health_pause=3000  #ms
+var stamina_pause=3000  #ms
 
 
 var health=61.0
 var max_health=100.0
-var health_regen_rate=1.0
+var health_regen_rate=10.0   #/s
 var movement_speed_walk=50.0
 var movement_speed_run=85.0
 var stamina=100.0
-var stamina_regen_rate=1.0
+var stamina_regen_rate=10.0  #/s
 var max_stamina=100.0
 var stamina_cost=0.75
 var dead=false
@@ -79,8 +79,8 @@ func _physics_process(delta):
 				kick_state()
 			HURT:
 				hurt_state()
-		auto_regen_health()
-		auto_regen_stamina()
+		auto_regen_health(delta)
+		auto_regen_stamina(delta)
 
 func shoot_state():
 	if Input.is_action_pressed("Shoot") and can_fire == true:
@@ -221,14 +221,18 @@ func reduce_stamina(lose:float):
 		stamina=0.0
 		tired=true
 		
-func auto_regen_health():
+func auto_regen_health(delta):
 	if OS.get_ticks_msec()-last_hurt_time>=health_pause:
-		if fmod(health , health_section)!=0:
-			add_health(health_regen_rate)
-		
-func auto_regen_stamina():
+		if fmod(health,health_section)!=0:
+			var section_before=int(health)/int(health_section)
+			add_health(health_regen_rate*delta)
+			var section_after=int(health)/int(health_section)
+			if section_before!=section_after:
+				health=section_after*health_section
+
+func auto_regen_stamina(delta):
 	if OS.get_ticks_msec()-last_run_time>=stamina_pause:
-		add_stamina(stamina_regen_rate)
+		add_stamina(stamina_regen_rate*delta)
 
 func hurt_state():
 	reduce_health(10)
