@@ -8,9 +8,9 @@ var isRight = true
 
 
 onready var Save_key : String = "Player" + name
-var hp = 61.0
+export(int) var hp = 61.0
 var stamina1
-var hp_limit=100.0
+export(int) var hp_limit=100.0
 var stamina_limit=100.0
 
 var last_hurt_time=OS.get_ticks_msec()
@@ -49,16 +49,24 @@ enum{
 
 var state = MOVE
 var velocity =  Vector2.ZERO
+var stats = PlayerStats
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var hurtbox = $Hurtbox
+
 var bullet = preload("res://Player/combat/bullet.tscn")
 var can_fire = true
 var rate_of_fire = 0.4
 var shooting = false
 
 # Called when the node enters the scene tree for the first time.func _process(delta):
+func _ready():
+	animationTree.active = true
+	stats.connect("no_health", self, "queue_free")
+	
+
 func _physics_process(delta):
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if dead:
@@ -122,13 +130,7 @@ func move_state(delta,is_run:bool):
 			animationTree.set("parameters/KickLeft/blend_position", input_vector)
 			animationState.travel("WalkLeft")	
 		
-		var angle_ratio=1
-		if input_vector.x==0:
-			angle_ratio=1
-		elif input_vector.y==0:
-			angle_ratio=2
-		else:
-			angle_ratio=sqrt(5)/2.0
+		var angle_ratio=cal_speed(input_vector)
 			
 		if !is_run or stamina==0 or tired:
 			velocity = velocity.move_toward(input_vector * movement_speed_walk*angle_ratio, ACCELERATION * delta)
@@ -178,8 +180,7 @@ func kick_anmation_finished():
 #	pass
 
 
-func _ready():
-	animationTree.active = true
+
 	
 func save(save_game: Resource):
 	save_game.data[Save_key] = {
@@ -239,3 +240,5 @@ func hurt_state():
 
 func _on_Hurtbox_area_entered(area):
 	hurt_state()
+	hurtbox.start_invincibility(0.5)
+	hurtbox.create_hit_effect()

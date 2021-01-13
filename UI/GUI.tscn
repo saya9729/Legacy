@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/inventory.png" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Title_screen/TitleScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Title_screen/NewGameScreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Title_screen/LoadGameScreen.tscn" type="PackedScene" id=14]
+[ext_resource path="res://UI/OptionMenu.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Music&Sound/1.ogg" type="AudioStream" id=16]
 
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
@@ -203,6 +205,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="OptionMenu" parent="GUI/GameMenu" instance=ExtResource( 15 )]
+visible = false
+margin_left = 0.23085
+margin_top = 1.47666
+margin_right = 163.231
+margin_bottom = 101.477
+
 [node name="LoadgameMenu" parent="GUI" instance=ExtResource( 7 )]
 visible = false
 margin_left = 20.3051
@@ -221,31 +230,6 @@ margin_top = -2.877
 margin_right = 179.575
 margin_bottom = 92.1233
 
-[node name="OptionMenu" type="Control" parent="GUI"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NinePatchRect" type="NinePatchRect" parent="GUI/OptionMenu"]
-margin_left = 1.0
-margin_top = 1.0
-margin_right = 169.0
-margin_bottom = 94.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/OptionMenu"]
-margin_top = 5.0
-margin_right = 142.0
-margin_bottom = 94.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CharacterUI" parent="GUI" instance=ExtResource( 8 )]
 
 [node name="TitleScreen" parent="GUI" instance=ExtResource( 12 )]
@@ -255,6 +239,9 @@ visible = false
 
 [node name="LoadGameScreen" parent="GUI" instance=ExtResource( 14 )]
 visible = false
+
+[node name="OST" type="AudioStreamPlayer2D" parent="GUI"]
+stream = ExtResource( 16 )
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Resume" to="GUI" method="_on_Resume_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Save game" to="GUI/GameMenu" method="_on_Save_game_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Load game" to="GUI/GameMenu" method="_on_Load_game_pressed"]
