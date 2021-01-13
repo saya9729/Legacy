@@ -35,7 +35,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sTAMINABAR" type="TextureProgress" parent="."]
+[node name="StaminaBar" type="TextureProgress" parent="."]
 margin_left = -3.0
 margin_top = 92.0
 margin_right = 287.0

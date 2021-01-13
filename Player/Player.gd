@@ -65,15 +65,17 @@ var shooting = false
 # Called when the node enters the scene tree for the first time.func _process(delta):
 func _ready():
 	animationTree.active = true
-	stats.connect("no_health", self, "queue_free")
+	
 	
 
 func _physics_process(delta):
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if dead:
-		pass
+		stats.connect("no_health", self, "queue_free")
+		
 #		var musicNode=$"Audio/Death"
 #		musicNode.play()
+		
 	else:
 		match state:
 			MOVE:
@@ -238,10 +240,8 @@ func auto_regen_stamina(delta):
 func hurt_state():
 	reduce_health(10)
 
-func _on_Hurtbox_area_entered(area):
-	hurt_state()
-	hurtbox.start_invincibility(0.5)
-	hurtbox.create_hit_effect()
+
+	
 #	direction = (self.global_position - area.get_parent().global_position()).normalized()
 #	if isRight:
 #		animationPlayer.play("hurt_right")
@@ -250,3 +250,9 @@ func _on_Hurtbox_area_entered(area):
 #
 #func hurt_anmation_finished():
 #	state = MOVE
+
+
+func _on_Hurtbox_area_entered(area):
+	hurt_state()
+	hurtbox.start_invincibility(0.5)
+	hurtbox.create_hit_effect()
