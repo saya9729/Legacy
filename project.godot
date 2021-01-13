@@ -37,6 +37,10 @@ run/main_scene="res://map.tscn"
 config/icon="res://main character6.png"
 config/Version="0.01"
 
+[autoload]
+
+PlayerStats="*res://Player/PlayerStats.tscn"
+
 [display]
 
 window/size/width=240

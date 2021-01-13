@@ -49,16 +49,24 @@ enum{
 
 var state = MOVE
 var velocity =  Vector2.ZERO
+var stats = PlayerStats
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var hurtbox = $Hurtbox
+
 var bullet = preload("res://Player/combat/bullet.tscn")
 var can_fire = true
 var rate_of_fire = 0.4
 var shooting = false
 
 # Called when the node enters the scene tree for the first time.func _process(delta):
+func _ready():
+	animationTree.active = true
+	stats.connect("no_health", self, "queue_free")
+	
+
 func _physics_process(delta):
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if dead:
@@ -178,8 +186,7 @@ func kick_anmation_finished():
 #	pass
 
 
-func _ready():
-	animationTree.active = true
+
 	
 func save(save_game: Resource):
 	save_game.data[Save_key] = {
@@ -239,3 +246,5 @@ func hurt_state():
 
 func _on_Hurtbox_area_entered(area):
 	hurt_state()
+	hurtbox.start_invincibility(0.5)
+	hurtbox.create_hit_effect()

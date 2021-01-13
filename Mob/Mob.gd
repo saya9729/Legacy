@@ -3,9 +3,10 @@ extends KinematicBody2D
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var sprite = $Sprite
+onready var hurtbox = $Hurtbox
 
 const KNOCKBACK_SPEED = 130
-const KICK_KNOCKBACK_SPEEED = 170
+const KICK_KNOCKBACK_SPEEED = 200
 const KNOCKBACK_FRICTION = 350
 
 const ACCELERATION = 500
@@ -60,6 +61,7 @@ func _on_Hurtbox_area_entered(area):
 		knockback_direction = $Hurtbox.global_position - area.get_parent().global_position
 		knockback_direction = knockback_direction.normalized()
 		knockback_velocity = knockback_direction * KICK_KNOCKBACK_SPEEED
+	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
 	queue_free()
