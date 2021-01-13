@@ -1,6 +1,6 @@
 extends Control
 
-onready var file = 'res://save/savefolder/lastest.txt'
+var file = "res://save/savefolder/latest/lastest.txt"
 onready var game_saver  : Node = $GameSaver
 onready var character_ui = get_node("/root/Node2D/GUI/GUI/CharacterUI")
 
@@ -39,8 +39,12 @@ func _on_Continue_pressed():
 	visible = false
 	character_ui.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	var name = load_file(file)
-	game_saver.load(int(name))
+	if(load_file(file) == "false"):
+		game_saver.load(1)
+	else:
+		var name = load_file(file)
+		print(name)
+		game_saver.load(int(name))
 
 
 func _on_Exit_pressed():
@@ -77,6 +81,9 @@ func LoadGame(save):
 func load_file(file):
 	var f = File.new()
 	f.open(file, File.READ)
+	if not f.file_exists(file):
+		print("Save file %s doesn't exist" % file)
+		return "false"
 	var line = ""
 	while not f.eof_reached():
 		line = f.get_line()

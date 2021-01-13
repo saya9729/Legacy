@@ -8,7 +8,7 @@ game_version = "0.01"
 data = {
 "PlayerPlayer": {
 "health": 40.0,
-"postion": Vector2( -310.63, -25.0775 ),
-"stamina": 43.5
+"postion": Vector2( -264.67, -75.9936 ),
+"stamina": 95.1667
 }
 }

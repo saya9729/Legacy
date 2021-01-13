@@ -18,10 +18,10 @@ func _on_Save_game_pressed():
 
 func CloseSaveMenu():
 	get_node("SavegameMenu").queue_free()
-	var image = get_viewport().get_texture().get_data()
-	image.flip_y()
-	image.resize(24,15)
-	image.save_png("res://UI/saveIcon/1.png")
+#	var image = get_viewport().get_texture().get_data()
+#	image.flip_y()
+#	image.resize(24,15)
+#	image.save_png("res://UI/saveIcon/1.png")
 	
 func _on_Options_pressed():
 	get_node("OptionMenu").visible = true

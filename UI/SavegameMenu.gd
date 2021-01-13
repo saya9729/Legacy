@@ -3,8 +3,9 @@ extends Control
 signal CloseSaveMenu
 
 onready var game_saver : Node = $GameSaver
-onready var file = 'res://save/savefolder/lastest.txt'
+var file = "res://save/savefolder/latest"
 
+		
 func _on_Back_pressed():
 	emit_signal("CloseSaveMenu")
 
@@ -38,8 +39,17 @@ func save_the_lastest_file():
 	pass
 	
 func save_to_file(file, name):
+	var directory: Directory = Directory.new()
+	if not directory.dir_exists(file):
+		directory.make_dir_recursive(file)
 	var f = File.new()
-	f.open(file, File.READ_WRITE)
+	var file_path = file +  "/lastest.txt"
+	if not f.file_exists(file_path): 
+		f.open(file_path,File.WRITE)
+		f.store_string(name)
+		f.close()
+		return
+	f.open(file_path, File.READ_WRITE)
 	f.seek_end()
 	f.store_string("\n")
 	f.store_string(name)

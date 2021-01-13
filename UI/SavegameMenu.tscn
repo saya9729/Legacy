@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/SavegameMenu.gd" type="Script" id=1]
 [ext_resource path="res://Font/pixellegacy.tres" type="DynamicFont" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://UI/savebox.png" type="Texture" id=7]
 [ext_resource path="res://save/GameSaver.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=9]
-[ext_resource path="res://UI/saveIcon/1.png" type="Texture" id=10]
 
 [node name="SavegameMenu" type="Control"]
 pause_mode = 2
@@ -66,7 +65,6 @@ margin_bottom = 15.0
 rect_clip_content = true
 size_flags_horizontal = 0
 texture_normal = ExtResource( 7 )
-texture_hover = ExtResource( 10 )
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="HBoxContainer/Column 1/Save slot 1"]
