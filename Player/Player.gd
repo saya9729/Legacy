@@ -122,13 +122,7 @@ func move_state(delta,is_run:bool):
 			animationTree.set("parameters/KickLeft/blend_position", input_vector)
 			animationState.travel("WalkLeft")	
 		
-		var angle_ratio=1
-		if input_vector.x==0:
-			angle_ratio=1
-		elif input_vector.y==0:
-			angle_ratio=2
-		else:
-			angle_ratio=sqrt(5)/2.0
+		var angle_ratio=cal_speed(input_vector)
 			
 		if !is_run or stamina==0 or tired:
 			velocity = velocity.move_toward(input_vector * movement_speed_walk*angle_ratio, ACCELERATION * delta)

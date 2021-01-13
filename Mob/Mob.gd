@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Creature
 
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
@@ -39,7 +39,8 @@ func _physics_process(delta):
 			var player = playerDetectionZone.player
 			if player != null:
 				var direction = (player.global_position - global_position).normalized()
-				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+				var angle_ratio=cal_speed(direction)
+				velocity = velocity.move_toward(direction * MAX_SPEED*angle_ratio, ACCELERATION * delta)
 			else:
 				state = IDLE
 			sprite.flip_h = velocity.x < 0
