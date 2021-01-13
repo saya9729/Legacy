@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Title_screen/SettingGameScreen.gd" type="Script" id=1]
 [ext_resource path="res://Font/pixellegacy.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Music&Sound/1.ogg" type="AudioStream" id=4]
 [ext_resource path="res://UI/pressedoption.png" type="Texture" id=5]
 [ext_resource path="res://UI/hoveroption.png" type="Texture" id=6]
 [ext_resource path="res://UI/option.png" type="Texture" id=7]
@@ -69,9 +68,6 @@ margin_right = 57.0
 margin_bottom = 91.0
 custom_fonts/font = ExtResource( 2 )
 text = "VFX"
-
-[node name="OST" type="AudioStreamPlayer2D" parent="option/column"]
-stream = ExtResource( 4 )
 
 [node name="back" type="TextureButton" parent="."]
 margin_left = 153.782

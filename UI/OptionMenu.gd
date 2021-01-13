@@ -1,6 +1,6 @@
 extends Control
 
-onready var music : Node = $option/column/OST
+onready var music = get_node("/root/Node2D/GUI/GUI/OST")
 signal OptionClose
 func _on_Music_toggled(button_pressed):
 	if(button_pressed):

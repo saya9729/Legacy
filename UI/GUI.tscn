@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/inventory.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Title_screen/NewGameScreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Title_screen/LoadGameScreen.tscn" type="PackedScene" id=14]
 [ext_resource path="res://UI/OptionMenu.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Music&Sound/1.ogg" type="AudioStream" id=16]
 
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
@@ -238,6 +239,9 @@ visible = false
 
 [node name="LoadGameScreen" parent="GUI" instance=ExtResource( 14 )]
 visible = false
+
+[node name="OST" type="AudioStreamPlayer2D" parent="GUI"]
+stream = ExtResource( 16 )
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Resume" to="GUI" method="_on_Resume_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Save game" to="GUI/GameMenu" method="_on_Save_game_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Load game" to="GUI/GameMenu" method="_on_Load_game_pressed"]
