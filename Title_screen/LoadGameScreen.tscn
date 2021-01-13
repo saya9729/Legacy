@@ -65,18 +65,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SaveSlot1" type="TextureRect" parent="CenterContainer/VBoxContainer/SaveSlot"]
+[node name="SaveSlot1" type="TextureButton" parent="CenterContainer/VBoxContainer/SaveSlot"]
 margin_left = 90.0
 margin_right = 114.0
 margin_bottom = 15.0
-texture = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
 stretch_mode = 6
 
-[node name="SaveSlot2" type="TextureRect" parent="CenterContainer/VBoxContainer/SaveSlot"]
+[node name="SaveSlot2" type="TextureButton" parent="CenterContainer/VBoxContainer/SaveSlot"]
 margin_left = 118.0
 margin_right = 142.0
 margin_bottom = 15.0
-texture = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
 stretch_mode = 6
 
 [node name="SaveSlot2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
@@ -88,18 +88,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SaveSlot3" type="TextureRect" parent="CenterContainer/VBoxContainer/SaveSlot2"]
+[node name="SaveSlot3" type="TextureButton" parent="CenterContainer/VBoxContainer/SaveSlot2"]
 margin_left = 90.0
 margin_right = 114.0
 margin_bottom = 15.0
-texture = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
 stretch_mode = 6
 
-[node name="SaveSlot4" type="TextureRect" parent="CenterContainer/VBoxContainer/SaveSlot2"]
+[node name="SaveSlot4" type="TextureButton" parent="CenterContainer/VBoxContainer/SaveSlot2"]
 margin_left = 118.0
 margin_right = 142.0
 margin_bottom = 15.0
-texture = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
 stretch_mode = 6
 
 [node name="button" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
@@ -128,4 +128,8 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SaveSlot/SaveSlot1" to="." method="_on_SaveSlot1_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SaveSlot/SaveSlot2" to="." method="_on_SaveSlot2_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SaveSlot2/SaveSlot3" to="." method="_on_SaveSlot3_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SaveSlot2/SaveSlot4" to="." method="_on_SaveSlot4_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/button/No" to="." method="_on_No_pressed"]

@@ -34,8 +34,9 @@ func load(id: int):
 	var file: File = File.new()
 	if not file.file_exists(save_file_path):
 		print("Save file %s doesn't exist" % save_file_path)
-		return
+		return false
 
 	var save_game: Resource = load(save_file_path)
 	for node in get_tree().get_nodes_in_group('save'):
 		node.load(save_game)
+	return true

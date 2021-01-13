@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/SavegameMenu.gd" type="Script" id=1]
 [ext_resource path="res://Font/pixellegacy.tres" type="DynamicFont" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://UI/inventory.png" type="Texture" id=6]
 [ext_resource path="res://UI/savebox.png" type="Texture" id=7]
 [ext_resource path="res://save/GameSaver.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=9]
+[ext_resource path="res://UI/saveIcon/1.png" type="Texture" id=10]
 
 [node name="SavegameMenu" type="Control"]
 pause_mode = 2
@@ -34,21 +36,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 9.0
-margin_top = 26.0
-margin_right = 155.0
-margin_bottom = 79.0
+[node name="Label" type="Label" parent="."]
+margin_left = 14.8651
+margin_top = 18.3516
+margin_right = 56.8651
+margin_bottom = 32.3516
+custom_fonts/font = ExtResource( 9 )
+text = "SAVE GAME"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Column 1" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 24.0
-margin_bottom = 53.0
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 9.0
+margin_top = 33.0
+margin_right = 61.0
+margin_bottom = 69.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Column 1" type="HBoxContainer" parent="HBoxContainer"]
+margin_right = 52.0
+margin_bottom = 15.0
 
 [node name="Save slot 1" type="TextureButton" parent="HBoxContainer/Column 1"]
 margin_right = 24.0
@@ -56,127 +66,84 @@ margin_bottom = 15.0
 rect_clip_content = true
 size_flags_horizontal = 0
 texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 10 )
+stretch_mode = 1
 
 [node name="Label" type="Label" parent="HBoxContainer/Column 1/Save slot 1"]
-margin_left = 1.29782
-margin_top = 0.230232
-margin_right = 23.2978
-margin_bottom = 10.2302
+margin_left = 1.8919
+margin_top = 1.78381
+margin_right = 21.8919
+margin_bottom = 14.7838
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
-text = "Save slot 1"
+text = "Save 1"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Save slot 2" type="TextureButton" parent="HBoxContainer/Column 1"]
-margin_top = 19.0
-margin_right = 24.0
-margin_bottom = 34.0
+margin_left = 28.0
+margin_right = 52.0
+margin_bottom = 15.0
 rect_clip_content = true
 size_flags_horizontal = 0
 texture_normal = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="HBoxContainer/Column 1/Save slot 2"]
-margin_left = 1.43026
-margin_top = 0.230232
-margin_right = 23.4303
-margin_bottom = 10.2302
+margin_left = 2.48651
+margin_top = 2.48651
+margin_right = 20.4865
+margin_bottom = 14.4865
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
-text = "Save slot 2"
+text = "Save 2"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Save slot 3" type="TextureButton" parent="HBoxContainer/Column 1"]
-margin_top = 38.0
-margin_right = 24.0
-margin_bottom = 53.0
-rect_clip_content = true
-size_flags_horizontal = 0
-texture_normal = ExtResource( 7 )
-
-[node name="Label" type="Label" parent="HBoxContainer/Column 1/Save slot 3"]
-margin_left = 1.29782
-margin_top = 0.230232
-margin_right = 23.2978
-margin_bottom = 10.2302
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
-text = "Save slot 3"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Column 2" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 28.0
+[node name="Column 2" type="HBoxContainer" parent="HBoxContainer"]
+margin_top = 19.0
 margin_right = 52.0
-margin_bottom = 53.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 34.0
 
-[node name="Save slot 4" type="TextureButton" parent="HBoxContainer/Column 2"]
+[node name="Save slot 3" type="TextureButton" parent="HBoxContainer/Column 2"]
 margin_right = 24.0
 margin_bottom = 15.0
 rect_clip_content = true
 size_flags_horizontal = 0
 texture_normal = ExtResource( 7 )
 
+[node name="Label" type="Label" parent="HBoxContainer/Column 2/Save slot 3"]
+margin_left = 1.8919
+margin_top = 1.7838
+margin_right = 21.8919
+margin_bottom = 14.7838
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
+text = "Save 3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save slot 4" type="TextureButton" parent="HBoxContainer/Column 2"]
+margin_left = 28.0
+margin_right = 52.0
+margin_bottom = 15.0
+rect_clip_content = true
+size_flags_horizontal = 0
+texture_normal = ExtResource( 7 )
+
 [node name="Label" type="Label" parent="HBoxContainer/Column 2/Save slot 4"]
-margin_left = 1.29782
-margin_top = 0.230232
-margin_right = 23.2978
-margin_bottom = 10.2302
+margin_left = 2.4865
+margin_top = 1.78381
+margin_right = 21.4865
+margin_bottom = 10.7838
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
-text = "Save slot 4"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Save slot 5" type="TextureButton" parent="HBoxContainer/Column 2"]
-margin_top = 19.0
-margin_right = 24.0
-margin_bottom = 34.0
-rect_clip_content = true
-size_flags_horizontal = 0
-texture_normal = ExtResource( 7 )
-
-[node name="Label" type="Label" parent="HBoxContainer/Column 2/Save slot 5"]
-margin_left = 1.43026
-margin_top = 0.230232
-margin_right = 23.4303
-margin_bottom = 10.2302
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
-text = "Save slot 5"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Save slot 6" type="TextureButton" parent="HBoxContainer/Column 2"]
-margin_top = 38.0
-margin_right = 24.0
-margin_bottom = 53.0
-rect_clip_content = true
-size_flags_horizontal = 0
-texture_normal = ExtResource( 7 )
-
-[node name="Label" type="Label" parent="HBoxContainer/Column 2/Save slot 6"]
-margin_left = 1.29782
-margin_top = 0.230232
-margin_right = 23.2978
-margin_bottom = 10.2302
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.576471, 0.388235, 0.262745, 1 )
-text = "Save slot 6"
+text = "Save 4"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -216,4 +183,7 @@ __meta__ = {
 
 [node name="GameSaver" parent="." instance=ExtResource( 8 )]
 [connection signal="pressed" from="HBoxContainer/Column 1/Save slot 1" to="." method="_on_Save_slot_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/Column 1/Save slot 2" to="." method="_on_Save_slot_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Column 2/Save slot 3" to="." method="_on_Save_slot_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/Column 2/Save slot 4" to="." method="_on_Save_slot_4_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

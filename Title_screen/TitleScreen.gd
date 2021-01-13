@@ -1,5 +1,6 @@
 extends Control
 
+onready var file = 'res://save/savefolder/lastest.txt'
 onready var game_saver  : Node = $GameSaver
 onready var character_ui = get_node("/root/Node2D/GUI/GUI/CharacterUI")
 
@@ -24,20 +25,19 @@ func CloseNewGame():
 func OpenNewGame():
 	get_node("Black").visible = false
 	get_node("NewGameScreen").queue_free()
-	var pause_state =  false
-	get_tree().paused = pause_state
-	visible = pause_state
+	get_tree().paused = false
+	visible = false
 	character_ui.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _on_Continue_pressed():
-	var pause_state =  false
-	get_tree().paused = pause_state
-	visible = pause_state
+	get_tree().paused = false
+	visible = false
 	character_ui.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	game_saver.load(1)
+	var name = load_file(file)
+	game_saver.load(int(name))
 
 
 func _on_Exit_pressed():
@@ -45,11 +45,33 @@ func _on_Exit_pressed():
 
 
 func _on_Load_Game_pressed():
-	var continue_game = load("res://Title_screen/LoadGameScreen.tscn").instance()
-	add_child(continue_game)
+	var load_game = load("res://Title_screen/LoadGameScreen.tscn").instance()
+	add_child(load_game)
 	get_node("Black").visible = true
 	get_node("LoadGameScreen").connect("LoadGameNo", self, "CloseLoadGame")
-	get_node("LoadGameScreen").connect("LoadGameNo", self, "CloseNewGame1")
+	get_node("LoadGameScreen").connect("LoadGameYes", self, "LoadGame")
 func CloseLoadGame():
 	get_node("Black").visible = false
 	get_node("LoadGameScreen").queue_free()
+func LoadGame(save):
+	if (game_saver.load(save)):
+		get_node("Black").visible = false
+		get_node("LoadGameScreen").queue_free()
+		get_tree().paused = false
+		visible = false
+		character_ui.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	else:
+		pass
+
+
+
+
+func load_file(file):
+	var f = File.new()
+	f.open(file, File.READ)
+	var line = ""
+	while not f.eof_reached():
+		line = f.get_line()
+	f.close()
+	return line
