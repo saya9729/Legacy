@@ -29,10 +29,10 @@ __meta__ = {
 }
 
 [node name="logo" type="NinePatchRect" parent="."]
-margin_left = 78.2063
-margin_top = 2.82207
-margin_right = 189.206
-margin_bottom = 79.8221
+margin_left = 82.0
+margin_top = -15.0
+margin_right = 212.0
+margin_bottom = 111.0
 texture = ExtResource( 11 )
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
