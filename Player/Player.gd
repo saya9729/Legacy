@@ -8,9 +8,9 @@ var isRight = true
 
 
 onready var Save_key : String = "Player" + name
-export(int) var hp = 61.0
+var hp = 61.0
 var stamina1
-export(int) var hp_limit=100.0
+var hp_limit=100.0
 var stamina_limit=100.0
 
 var last_hurt_time=OS.get_ticks_msec()

@@ -75,12 +75,3 @@ func load_file(file):
 		line = f.get_line()
 	f.close()
 	return line
-
-
-func _on_Setting_pressed():
-	get_node("SettingGameScreen").visible = true
-	get_node("Black").visible = true
-	get_node("SettingGameScreen").connect("Settingback", self, "Settingback")
-func Settingback():
-	get_node("Black").visible = false
-	get_node("SettingGameScreen").visible = false

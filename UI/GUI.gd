@@ -11,7 +11,7 @@ func _on_Resume_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _input(event):
-	if event.is_action_pressed("GameMenu") and !get_node("TitleScreen").visible:
+	if event.is_action_pressed("GameMenu"):
 		get_tree().paused =!get_tree().paused
 		get_node("GameMenu").toggle_visibility()
 		get_node("CharacterUI").toggle_visibility()

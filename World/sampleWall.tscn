@@ -14,7 +14,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 7, -2 )
-polygon = PoolVector2Array( -11.7445, 2.65155, 6, 11, 11, 10, 11, 6, -4, 0 )
+polygon = PoolVector2Array( -11.7445, 2.65155, 6, 11, 10, 10, 10, 6, -4, 0 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
