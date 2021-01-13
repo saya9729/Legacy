@@ -710,7 +710,7 @@ height = 7.99998
 
 [sub_resource type="CapsuleShape2D" id=81]
 radius = 8.0
-height = 8.0
+height = 12.0
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2

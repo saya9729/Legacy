@@ -7,8 +7,14 @@ script = ExtResource( 1 )
 game_version = "0.01"
 data = {
 "PlayerPlayer": {
-"health": 20,
-"postion": Vector2( -261.11, -213.764 ),
-"stamina": 16.0
+<<<<<<< Updated upstream
+"health": 46.8333,
+"postion": Vector2( -322.242, 17.7667 ),
+"stamina": 84.6666
+=======
+"health": 66.6667,
+"postion": Vector2( -174.325, -3.67351 ),
+"stamina": 100.0
+>>>>>>> Stashed changes
 }
 }

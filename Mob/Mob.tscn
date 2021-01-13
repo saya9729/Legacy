@@ -43,8 +43,8 @@ radius = 8.0
 height = 4.0
 
 [sub_resource type="CapsuleShape2D" id=9]
-radius = 6.0
-height = 0.0
+radius = 8.0
+height = 4.0
 
 [sub_resource type="CircleShape2D" id=10]
 radius = 58.0775
@@ -58,6 +58,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.951386, 1 )
 frames = SubResource( 6 )
 animation = "Animate"
+frame = 3
 playing = true
 offset = Vector2( 0, -12 )
 

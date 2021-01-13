@@ -72,7 +72,6 @@ func _physics_process(delta):
 	if dead:
 		var musicNode=$"Audio/Death"
 		musicNode.play()
-		queue_free()
 	else:
 		match state:
 			MOVE:
@@ -138,6 +137,8 @@ func move_state(delta,is_run:bool):
 		else:
 			velocity = velocity.move_toward(input_vector * movement_speed_run*angle_ratio, ACCELERATION * delta)
 			reduce_stamina(stamina_cost)
+		
+		
 	else:
 		if isRight:
 			animationState.travel("StandRight")
@@ -236,9 +237,8 @@ func auto_regen_stamina(delta):
 
 func hurt_state():
 	reduce_health(10)
-	hurtbox.start_invincibility(0.5)
 
 func _on_Hurtbox_area_entered(area):
 	hurt_state()
-	
+	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
