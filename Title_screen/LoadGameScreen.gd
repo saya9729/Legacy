@@ -6,9 +6,7 @@ signal LoadGameYes
 
 func _on_No_pressed():
 	emit_signal("LoadGameNo")
-func _input(event):
-	if event.is_action_pressed("GameMenu"):
-		emit_signal("LoadGameNo")
+
 
 func _on_SaveSlot1_pressed():
 	emit_signal("LoadGameYes",1)
