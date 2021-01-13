@@ -58,6 +58,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.951386, 1 )
 frames = SubResource( 6 )
 animation = "Animate"
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 

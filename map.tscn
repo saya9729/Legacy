@@ -55,7 +55,6 @@ position = Vector2( -316.624, -43.4096 )
 position = Vector2( -108.559, 57.0808 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.00392157, 0.0470588, 0.054902, 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -69,7 +68,7 @@ __meta__ = {
 [node name="Player" parent="YSort" groups=[
 "save",
 ] instance=ExtResource( 3 )]
-position = Vector2( -160, 4 )
+position = Vector2( -175, 25 )
 
 [node name="Mobs" type="YSort" parent="YSort"]
 __meta__ = {
@@ -86,7 +85,7 @@ position = Vector2( -441.327, -5.73831 )
 position = Vector2( -304.769, -3.32195 )
 
 [node name="Mob" parent="YSort/Mobs" instance=ExtResource( 7 )]
-position = Vector2( -121, 4 )
+position = Vector2( -86, 22 )
 
 [node name="Furniture" type="YSort" parent="YSort"]
 __meta__ = {

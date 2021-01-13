@@ -174,20 +174,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 36, 37 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "hurt_anmation_finished"
-} ]
-}
 
 [sub_resource type="Animation" id=7]
 resource_name = "hurt_right"
@@ -204,20 +190,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 30, 29 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "hurt_anmation_finished"
-} ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -695,7 +667,7 @@ states/WalkRight/node = SubResource( 56 )
 states/WalkRight/position = Vector2( 428.916, 111.62 )
 transitions = [ "StandRight", "WalkRight", SubResource( 57 ), "WalkRight", "StandRight", SubResource( 58 ), "AttackRight", "StandRight", SubResource( 59 ), "StandRight", "AttackRight", SubResource( 60 ), "StandRight", "DieRight", SubResource( 61 ), "StandRight", "HurtRight", SubResource( 62 ), "HurtRight", "StandRight", SubResource( 63 ), "StandLeft", "AttackLeft", SubResource( 64 ), "AttackLeft", "StandLeft", SubResource( 65 ), "StandLeft", "WalkLeft", SubResource( 66 ), "WalkLeft", "StandLeft", SubResource( 67 ), "StandLeft", "StandRight", SubResource( 68 ), "StandRight", "StandLeft", SubResource( 69 ), "KickLeft", "StandLeft", SubResource( 70 ), "StandLeft", "KickLeft", SubResource( 71 ), "KickRight", "StandRight", SubResource( 72 ), "StandRight", "KickRight", SubResource( 73 ), "HurtLeft", "StandLeft", SubResource( 74 ), "StandLeft", "HurtLeft", SubResource( 75 ) ]
 start_node = "StandLeft"
-graph_offset = Vector2( -461.564, -80.3363 )
+graph_offset = Vector2( -190.159, -281.415 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=77]
 
@@ -726,7 +698,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 28
-frame = 80
+frame = 36
 __meta__ = {
 "_edit_lock_": true
 }

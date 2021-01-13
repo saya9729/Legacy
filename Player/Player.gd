@@ -50,6 +50,7 @@ enum{
 var state = MOVE
 var velocity =  Vector2.ZERO
 var stats = PlayerStats
+var direction = Vector2.ZERO
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -70,9 +71,9 @@ func _ready():
 func _physics_process(delta):
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if dead:
-		var musicNode=$"Audio/Death"
-		musicNode.play()
-		queue_free()
+		pass
+#		var musicNode=$"Audio/Death"
+#		musicNode.play()
 	else:
 		match state:
 			MOVE:
@@ -236,9 +237,14 @@ func auto_regen_stamina(delta):
 
 func hurt_state():
 	reduce_health(10)
-	hurtbox.start_invincibility(0.5)
 
 func _on_Hurtbox_area_entered(area):
 	hurt_state()
-	
+	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
+#	direction = (self.global_position - area.get_parent().global_position()).normalized()
+	if isRight:
+		animationPlayer.play("hurt_right")
+	else:
+		animationPlayer.play("hurt_left")
+
