@@ -710,7 +710,7 @@ height = 7.99998
 
 [sub_resource type="CapsuleShape2D" id=81]
 radius = 8.0
-height = 12.0
+height = 14.5472
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -718,8 +718,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-hp = 200
-hp_limit = 200
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
@@ -848,13 +846,12 @@ disabled = true
 [node name="Hurtbox" parent="." instance=ExtResource( 8 )]
 position = Vector2( 0, -12 )
 collision_layer = 4
+script = null
 
-[node name="HurtboxShape" parent="Hurtbox" index="0"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 81 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="HitboxPivot/KickHitbox"]
-
-[editable path="Hurtbox"]

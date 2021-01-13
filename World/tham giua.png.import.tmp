@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/legacylogo.png-67493a0b657577ba7a0b547b9323c700.stex"
+path="res://.import/tham giua.png-f294bb4ee8e9e1f9b1e84eae81f78e3a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://legacylogo.png"
-dest_files=[ "res://.import/legacylogo.png-67493a0b657577ba7a0b547b9323c700.stex" ]
+source_file="res://World/tham giua.png"
+dest_files=[ "res://.import/tham giua.png-f294bb4ee8e9e1f9b1e84eae81f78e3a.stex" ]
 
 [params]
 
