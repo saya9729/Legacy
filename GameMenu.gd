@@ -24,9 +24,12 @@ func CloseSaveMenu():
 	image.save_png("res://UI/saveIcon/1.png")
 	
 func _on_Options_pressed():
-	pass # Replace with function body.
+	get_node("OptionMenu").visible = true
+	get_node("OptionMenu").connect("OptionClose", self, "OptionClose")
 
-
+func OptionClose():
+	get_node("OptionMenu").visible = false
+	
 func _on_Load_game_pressed():
 	var Load_menu = load("res://UI/LoadgameMenu.tscn").instance()
 	add_child(Load_menu)
