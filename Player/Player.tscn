@@ -718,6 +718,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+hp = 200
+hp_limit = 200
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
