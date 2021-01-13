@@ -1,9 +1,7 @@
 extends Control
 
 signal CloseLoadMenu
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 onready var game_saver : Node = $GameSaver
 
 

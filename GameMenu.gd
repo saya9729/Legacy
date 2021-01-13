@@ -46,4 +46,4 @@ func CloseLoadMenu(ok):
 func _on_Quit_to_main_menu_pressed():
 	visible = false
 	get_parent().get_node("TitleScreen").visible = true
-	get_tree().paused = false
+	get_tree().paused = true
