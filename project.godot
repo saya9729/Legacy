@@ -34,7 +34,7 @@ _global_script_class_icons={
 
 config/name="Legacy"
 run/main_scene="res://map.tscn"
-config/icon="res://main character6.png"
+config/icon="res://legacylogo.png"
 config/Version="0.01"
 
 [autoload]
