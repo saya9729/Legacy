@@ -243,8 +243,10 @@ func _on_Hurtbox_area_entered(area):
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
 #	direction = (self.global_position - area.get_parent().global_position()).normalized()
-	if isRight:
-		animationPlayer.play("hurt_right")
-	else:
-		animationPlayer.play("hurt_left")
-
+#	if isRight:
+#		animationPlayer.play("hurt_right")
+#	else:
+#		animationPlayer.play("hurt_left")
+#
+#func hurt_anmation_finished():
+#	state = MOVE
