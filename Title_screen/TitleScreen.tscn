@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/hoveroption.png" type="Texture" id=1]
 [ext_resource path="res://UI/pressedoption.png" type="Texture" id=2]
-[ext_resource path="res://UI/option.png" type="Texture" id=3]
+[ext_resource path="res://Font/Saigon font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Title_screen/image 4.png" type="Texture" id=4]
-[ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Font/pixellegacy.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Title_screen/FadeIn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Title_screen/TitleScreen.gd" type="Script" id=8]
 [ext_resource path="res://save/GameSaver.tscn" type="PackedScene" id=9]
-[ext_resource path="res://icon.png" type="Texture" id=10]
+[ext_resource path="res://Title_screen/SettingGameScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://legacylogo.png" type="Texture" id=11]
+[ext_resource path="res://UI/option2.png" type="Texture" id=12]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -19,7 +20,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="background" type="NinePatchRect" parent="."]
 margin_right = 241.0
 margin_bottom = 135.0
 texture = ExtResource( 4 )
@@ -27,46 +28,53 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="logo" type="NinePatchRect" parent="."]
+margin_left = 78.2063
+margin_top = 2.82207
+margin_right = 189.206
+margin_bottom = 79.8221
+texture = ExtResource( 11 )
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 1.0
-margin_right = 240.0
-margin_bottom = 133.0
+margin_top = 61.0
+margin_right = 244.0
+margin_bottom = 138.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Logo" type="TextureRect" parent="Menu"]
-margin_right = 239.0
-margin_bottom = 64.0
-texture = ExtResource( 10 )
-stretch_mode = 6
-
 [node name="CenterRow" type="HBoxContainer" parent="Menu"]
-margin_top = 68.0
-margin_right = 239.0
-margin_bottom = 133.0
+margin_right = 243.0
+margin_bottom = 77.0
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Button" type="VBoxContainer" parent="Menu/CenterRow"]
-margin_left = 92.0
-margin_right = 147.0
-margin_bottom = 65.0
+margin_left = 94.0
+margin_right = 149.0
+margin_bottom = 77.0
 
 [node name="Continue" type="TextureButton" parent="Menu/CenterRow/Button"]
 margin_right = 55.0
 margin_bottom = 8.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 1 )
+texture_disabled = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="Menu/CenterRow/Button/Continue"]
-margin_left = 6.75408
-margin_top = -1.85406
-margin_right = 47.7541
-margin_bottom = 12.1459
-custom_fonts/font = ExtResource( 5 )
+margin_left = 7.11137
+margin_top = -0.1091
+margin_right = 48.1114
+margin_bottom = 7.8909
+custom_fonts/font = ExtResource( 3 )
 text = "CONTINUE"
 align = 1
 __meta__ = {
@@ -77,16 +85,16 @@ __meta__ = {
 margin_top = 12.0
 margin_right = 55.0
 margin_bottom = 20.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="Menu/CenterRow/Button/New Game"]
-margin_left = 6.75408
-margin_top = -1.85406
-margin_right = 47.7541
-margin_bottom = 12.1459
-custom_fonts/font = ExtResource( 5 )
+margin_left = 7.11136
+margin_top = 0.00226593
+margin_right = 48.1114
+margin_bottom = 8.00227
+custom_fonts/font = ExtResource( 3 )
 text = "NEW GAME"
 align = 1
 __meta__ = {
@@ -97,16 +105,16 @@ __meta__ = {
 margin_top = 24.0
 margin_right = 55.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="Menu/CenterRow/Button/Load Game"]
-margin_left = 6.75408
-margin_top = -1.85406
-margin_right = 47.7541
-margin_bottom = 12.1459
-custom_fonts/font = ExtResource( 5 )
+margin_left = 0.111359
+margin_top = -0.220459
+margin_right = 55.1114
+margin_bottom = 7.77954
+custom_fonts/font = ExtResource( 3 )
 text = "LOAD GAME"
 align = 1
 __meta__ = {
@@ -117,16 +125,16 @@ __meta__ = {
 margin_top = 36.0
 margin_right = 55.0
 margin_bottom = 44.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="Menu/CenterRow/Button/Setting"]
-margin_left = 6.75408
-margin_top = -1.85406
-margin_right = 47.7541
-margin_bottom = 12.1459
-custom_fonts/font = ExtResource( 5 )
+margin_left = 8.0
+margin_top = -0.109108
+margin_right = 48.0
+margin_bottom = 7.89089
+custom_fonts/font = ExtResource( 3 )
 text = "SETTING"
 align = 1
 __meta__ = {
@@ -137,16 +145,16 @@ __meta__ = {
 margin_top = 48.0
 margin_right = 55.0
 margin_bottom = 56.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="Menu/CenterRow/Button/Exit"]
-margin_left = 6.75408
-margin_top = -1.85406
-margin_right = 47.7541
-margin_bottom = 12.1459
-custom_fonts/font = ExtResource( 5 )
+margin_left = 7.0
+margin_top = -0.220467
+margin_right = 48.0
+margin_bottom = 7.77953
+custom_fonts/font = ExtResource( 3 )
 text = "EXIT"
 align = 1
 __meta__ = {
@@ -174,7 +182,11 @@ visible = false
 margin_right = 239.0
 margin_bottom = 136.0
 color = Color( 0, 0, 0, 0.247059 )
+
+[node name="SettingGameScreen" parent="." instance=ExtResource( 10 )]
+visible = false
 [connection signal="pressed" from="Menu/CenterRow/Button/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Button/New Game" to="." method="_on_New_Game_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Button/Load Game" to="." method="_on_Load_Game_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Button/Setting" to="." method="_on_Setting_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Button/Exit" to="." method="_on_Exit_pressed"]

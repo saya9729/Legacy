@@ -55,6 +55,7 @@ position = Vector2( -316.624, -43.4096 )
 position = Vector2( -108.559, 57.0808 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.00392157, 0.0470588, 0.054902, 1 )
 __meta__ = {
 "_edit_lock_": true
