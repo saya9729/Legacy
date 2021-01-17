@@ -27,7 +27,7 @@ var movement_speed_run=85.0
 var stamina=100.0
 var stamina_regen_rate=10.0  #/s
 var max_stamina=100.0
-var stamina_cost=0.75
+var stamina_cost=10.0 #/s
 var dead=false
 var tired=false
 var health_section=20
@@ -140,7 +140,7 @@ func move_state(delta,is_run:bool):
 			velocity = velocity.move_toward(input_vector * movement_speed_walk*angle_ratio, ACCELERATION * delta)
 		else:
 			velocity = velocity.move_toward(input_vector * movement_speed_run*angle_ratio, ACCELERATION * delta)
-			reduce_stamina(stamina_cost)
+			reduce_stamina(stamina_cost*delta)
 	else:
 		if isRight:
 			animationState.travel("StandRight")
